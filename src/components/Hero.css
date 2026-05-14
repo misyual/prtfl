@@ -36,7 +36,6 @@
   letter-spacing: 0.12em;
   margin-bottom: 12px;
   text-transform: uppercase;
-  animation: hero-slide-up 600ms ease both;
 }
 
 .hero-copy h1 {
@@ -44,13 +43,11 @@
   letter-spacing: 0;
   font-size: 48px;
   line-height: 1.1;
-  animation: hero-slide-up 700ms ease 100ms both;
 }
 
 .hero-text {
   max-width: 580px;
   font-size: 20px;
-  animation: hero-slide-up 700ms ease 180ms both;
 }
 
 .hero-highlights {
@@ -58,7 +55,6 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 26px;
-  animation: hero-slide-up 700ms ease 260ms both;
 }
 
 .hero-highlights span {
@@ -76,7 +72,6 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 32px;
-  animation: hero-slide-up 700ms ease 340ms both;
 }
 
 .button {
@@ -117,7 +112,6 @@
   align-items: center;
   justify-content: center;
   min-height: 420px;
-  animation: hero-fade-in 800ms ease 220ms both;
 }
 
 .design-board {
@@ -133,7 +127,6 @@
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
   overflow: hidden;
   transform: rotate(2deg);
-  animation: board-float 6s ease-in-out infinite;
 }
 
 .design-board::before,
@@ -218,48 +211,11 @@
 .card-one {
   left: 22px;
   top: 84px;
-  animation: card-float 4.8s ease-in-out infinite;
 }
 
 .card-two {
   right: 20px;
   bottom: 42px;
-  animation: card-float 5.4s ease-in-out 500ms infinite reverse;
-}
-
-@keyframes hero-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hero-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes board-float {
-  0%,
-  100% {
-    transform: rotate(2deg) translateY(0);
-  }
-
-  50% {
-    transform: rotate(-1deg) translateY(-12px);
-  }
 }
 
 @keyframes shape-drift {
@@ -270,17 +226,6 @@
 
   50% {
     transform: translate(-14px, 18px) scale(1.08);
-  }
-}
-
-@keyframes card-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
   }
 }
 

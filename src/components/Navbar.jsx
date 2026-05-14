@@ -1,25 +1,36 @@
+import { motion } from 'motion/react'
 import './Navbar.css'
 
-const navItems = [
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 function Navbar() {
   return (
-    <header className="navbar">
-      <a className="brand" href="#top" aria-label="Go to top">
-        Portfolio | Mishall Clive A. Balobalo
+    <motion.header
+      className="navbar"
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
+    >
+      <a className="navbar-logo" href="#top" aria-label="Back to top">
+        Portfolio
       </a>
-      <nav aria-label="Primary navigation">
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
-            {item.label}
-          </a>
+      <nav className="navbar-links" aria-label="Primary navigation">
+        {navLinks.map((link) => (
+          <motion.a
+            key={link.href}
+            href={link.href}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            {link.label}
+          </motion.a>
         ))}
       </nav>
-    </header>
+    </motion.header>
   )
 }
 

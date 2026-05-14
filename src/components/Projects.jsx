@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import './Projects.css'
 
 const projects = [
@@ -26,14 +27,29 @@ const projects = [
 
 function Projects() {
   return (
-    <section className="projects-section" id="projects">
-      <div className="section-heading">
+    <motion.section
+      className="projects-section"
+      id="projects"
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      <motion.div className="section-heading">
         <p className="eyebrow">Projects</p>
         <h2>Selected work</h2>
-      </div>
+      </motion.div>
       <div className="project-grid">
-        {projects.map((project) => (
-          <article className="project-card" key={project.title}>
+        {projects.map((project, index) => (
+          <motion.article
+            className="project-card"
+            key={project.title}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -8 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.5, delay: index * 0.12 }}
+          >
             <div
               className={`project-preview ${project.preview}`}
               aria-hidden="true"
@@ -46,13 +62,15 @@ function Projects() {
             <p>{project.description}</p>
             <div className="tag-list">
               {project.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
+                <motion.span key={tag} whileHover={{ scale: 1.06 }}>
+                  {tag}
+                </motion.span>
               ))}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
 
