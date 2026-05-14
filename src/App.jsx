@@ -5,39 +5,47 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import './App.css'
-import GhostCursor from './components/GhostCursor'
+import DotField from './components/DotField'
 
 function App() {
   return (
-    <div className="portfolio-shell">
+    <>
       <div style={{
         position: 'fixed',
-        inset: 0,
+        top: 0,
+        left: 0,
         width: '100vw',
         height: '100vh',
         zIndex: 0,
+        pointerEvents: 'none'
       }}>
-        <GhostCursor
-          trailLength={50}
-          inertia={0.5}
-          grainIntensity={0.05}
-          bloomStrength={0.1}
-          bloomRadius={1}
-          brightness={2}
-          color="#B497CF"
-          edgeIntensity={0}
+        <DotField
+          dotRadius={2.5}
+          dotSpacing={16}
+          bulgeStrength={67}
+          glowRadius={220}
+          sparkle={false}
+          waveAmplitude={0}
+          cursorRadius={500}
+          cursorForce={0.23}
+          bulgeOnly
+          gradientFrom="#A855F7"
+          gradientTo="#B497CF"
+          glowColor="#120F17"
         />
       </div>
 
-      <Navbar />
-      <main style={{ position: 'relative', zIndex: 1 }}>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+      <div className="portfolio-shell" style={{ position: 'relative', zIndex: 1 }}>
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
