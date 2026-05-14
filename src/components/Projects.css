@@ -27,7 +27,7 @@
 }
 
 .project-card {
-  min-height: 210px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -35,6 +35,117 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg);
+}
+
+.project-preview {
+  position: relative;
+  min-height: 150px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--social-bg);
+}
+
+.project-preview span {
+  position: absolute;
+  display: block;
+}
+
+.project-preview.brand {
+  background:
+    linear-gradient(135deg, rgba(20, 184, 166, 0.24), transparent 42%),
+    linear-gradient(315deg, rgba(250, 204, 21, 0.24), transparent 42%),
+    #f8fafc;
+}
+
+.project-preview.brand span:first-child {
+  width: 72px;
+  height: 72px;
+  left: 22px;
+  top: 28px;
+  border-radius: 50%;
+  background: #0f172a;
+}
+
+.project-preview.brand span:nth-child(2) {
+  width: 96px;
+  height: 16px;
+  right: 22px;
+  top: 38px;
+  border-radius: 999px;
+  background: #14b8a6;
+}
+
+.project-preview.brand span:nth-child(3) {
+  width: 128px;
+  height: 54px;
+  right: 22px;
+  bottom: 24px;
+  border-radius: 8px;
+  background: #facc15;
+}
+
+.project-preview.social {
+  background: #111827;
+}
+
+.project-preview.social span:first-child {
+  inset: 18px auto auto 18px;
+  width: 86px;
+  height: 112px;
+  border-radius: 8px;
+  background: #f97316;
+}
+
+.project-preview.social span:nth-child(2) {
+  right: 18px;
+  top: 24px;
+  width: 96px;
+  height: 18px;
+  border-radius: 999px;
+  background: #f9fafb;
+}
+
+.project-preview.social span:nth-child(3) {
+  right: 18px;
+  bottom: 28px;
+  width: 128px;
+  height: 62px;
+  border-radius: 8px;
+  background: #22c55e;
+}
+
+.project-preview.poster {
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(15, 23, 42, 0.12) 50%),
+    #fef3c7;
+}
+
+.project-preview.poster span:first-child {
+  left: 24px;
+  top: 24px;
+  width: 116px;
+  height: 18px;
+  border-radius: 999px;
+  background: #dc2626;
+}
+
+.project-preview.poster span:nth-child(2) {
+  left: 24px;
+  top: 58px;
+  width: 76px;
+  height: 76px;
+  border-radius: 8px;
+  background: #2563eb;
+}
+
+.project-preview.poster span:nth-child(3) {
+  right: 24px;
+  bottom: 24px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #111827;
 }
 
 .project-card h3 {

@@ -2,22 +2,25 @@ import './Projects.css'
 
 const projects = [
   {
-    title: 'Personal Portfolio',
+    title: 'Brand Identity Design',
     description:
-      'A responsive portfolio page with project highlights, contact details, and a clean visual system.',
-    tags: ['React', 'CSS', 'Vite'],
+      'Logo concepts, color palettes, typography choices, and visual guidelines for a clear brand look.',
+    tags: ['Logo', 'Branding', 'Typography'],
+    preview: 'brand',
   },
   {
-    title: 'Task Dashboard',
+    title: 'Social Media Graphics',
     description:
-      'A compact dashboard concept for tracking daily tasks, priorities, and progress in one place.',
-    tags: ['UI Design', 'JavaScript'],
+      'Scroll-stopping post layouts, campaign graphics, and story templates made for digital platforms.',
+    tags: ['Canva', 'Layout', 'Content'],
+    preview: 'social',
   },
   {
-    title: 'Product Landing Page',
+    title: 'Poster and Print Design',
     description:
-      'A focused landing page layout with a strong first screen, concise copy, and mobile-friendly sections.',
-    tags: ['HTML', 'CSS', 'Responsive'],
+      'Event posters, promotional flyers, and print-ready designs with strong visual hierarchy.',
+    tags: ['Poster', 'Flyer', 'Print'],
+    preview: 'poster',
   },
 ]
 
@@ -31,6 +34,14 @@ function Projects() {
       <div className="project-grid">
         {projects.map((project) => (
           <article className="project-card" key={project.title}>
+            <div
+              className={`project-preview ${project.preview}`}
+              aria-hidden="true"
+            >
+              <span />
+              <span />
+              <span />
+            </div>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <div className="tag-list">
