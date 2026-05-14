@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <a className="brand" href="#top" aria-label="Go to top">
-        Portfolio
+        Portfolio | Mishall Clive A. Balobalo
       </a>
       <nav aria-label="Primary navigation">
         {navItems.map((item) => (

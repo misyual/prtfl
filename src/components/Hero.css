@@ -42,6 +42,8 @@
 .hero-copy h1 {
   max-width: 720px;
   letter-spacing: 0;
+  font-size: 48px;
+  line-height: 1.1;
   animation: hero-slide-up 700ms ease 100ms both;
 }
 
