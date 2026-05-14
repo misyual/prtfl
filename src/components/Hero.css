@@ -10,9 +10,7 @@
   box-sizing: border-box;
   overflow: hidden;
   background:
-    linear-gradient(120deg, rgba(20, 184, 166, 0.12), transparent 34%),
-    linear-gradient(310deg, rgba(245, 158, 11, 0.14), transparent 32%),
-    var(--bg);
+    transparent;
 }
 
 .hero-section::before {

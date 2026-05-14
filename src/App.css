@@ -1,4 +1,5 @@
 .portfolio-shell {
-  min-height: 100svh;
-  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  background: transparent;
 }
