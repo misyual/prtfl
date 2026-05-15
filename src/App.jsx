@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import './App.css'
 import DotField from './components/DotField'
+import SplashCursor from './components/SplashCursor'
 
 
 function App() {
@@ -33,6 +34,18 @@ function App() {
           gradientFrom="#A855F7"
           gradientTo="#B497CF"
           glowColor="#120F17"
+        />
+        <SplashCursor
+          DENSITY_DISSIPATION={3.5}
+          VELOCITY_DISSIPATION={2}
+          PRESSURE={0.1}
+          CURL={3}
+          SPLAT_RADIUS={0.2}
+          SPLAT_FORCE={6000}
+          COLOR_UPDATE_SPEED={10}
+          SHADING
+          RAINBOW_MODE={false}
+          COLOR="#A855F7"
         />
       </div>
 
