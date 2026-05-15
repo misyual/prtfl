@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import './Navbar.css'
+import GooeyNav from './GooeyNav'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -18,18 +19,18 @@ function Navbar() {
       <a className="navbar-logo" href="#top" aria-label="Back to top">
         Portfolio
       </a>
-      <nav className="navbar-links" aria-label="Primary navigation">
-        {navLinks.map((link) => (
-          <motion.a
-            key={link.href}
-            href={link.href}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            {link.label}
-          </motion.a>
-        ))}
-      </nav>
+      <div className="navbar-links">
+        <GooeyNav
+          items={navLinks}
+          particleCount={20}
+          particleDistances={[90, 10]}
+          particleR={100}
+          initialActiveIndex={0}
+          animationTime={600}
+          timeVariance={300}
+          colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+        />
+      </div>
     </motion.header>
   )
 }

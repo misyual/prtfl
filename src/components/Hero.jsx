@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/funny-cats-2-20250212.webp'
 import TextPressure from './TextPressure'
+import TiltedCard from './TiltedCard'
 import './Hero.css'
 
 
@@ -96,17 +97,27 @@ function Hero() {
           show: { opacity: 1, scale: 1, rotate: 0 },
         }}
       >
-        <motion.div
-          className="design-board"
-          animate={{ y: [0, -12, 0], rotate: [2, -1, 2] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="board-header">
-            <span />
-            <span />
-            <span />
-          </div>
-          <img src={heroImg} alt="" />
+        <motion.div className="design-board">
+          <TiltedCard
+            imageSrc={heroImg}
+            altText="Portfolio profile artwork"
+            containerHeight="390px"
+            containerWidth="100%"
+            imageHeight="390px"
+            imageWidth="100%"
+            rotateAmplitude={10}
+            scaleOnHover={1.03}
+            showMobileWarning={false}
+            showTooltip={false}
+            displayOverlayContent
+            overlayContent={
+              <div className="board-header" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+            }
+          />
           <motion.div
             className="floating-card card-one"
             animate={{ y: [0, -10, 0] }}

@@ -27,7 +27,12 @@
   gap: 10px;
 }
 
+.navbar-logo,
 .navbar-links a {
+  text-decoration: none;
+}
+
+.navbar-links > a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +48,7 @@
     color 180ms ease;
 }
 
-.navbar-links a:hover {
+.navbar-links > a:hover {
   color: var(--text-h);
   background: var(--social-bg);
 }

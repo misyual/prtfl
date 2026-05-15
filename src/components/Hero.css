@@ -115,41 +115,35 @@
 .design-board {
   position: relative;
   width: min(100%, 390px);
-  min-height: 390px;
+  height: 390px;
   border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+  overflow: visible;
+  transform: rotate(2deg);
+}
+
+.design-board .tilted-card-figure {
+  height: 100%;
+  margin: 0;
+}
+
+.design-board .tilted-card-inner {
+  overflow: hidden;
   border-radius: 16px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 45%),
     linear-gradient(315deg, rgba(20, 184, 166, 0.22), transparent 34%),
     #111827;
-  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-  overflow: hidden;
-  transform: rotate(2deg);
+  box-shadow: inherit;
 }
 
-.design-board::before,
-.design-board::after {
-  content: '';
-  position: absolute;
-  border-radius: 999px;
-}
-
-.design-board::before {
-  width: 190px;
-  height: 190px;
-  right: -54px;
-  top: 64px;
-  background: #f59e0b;
-  animation: shape-drift 8s ease-in-out infinite;
-}
-
-.design-board::after {
-  width: 140px;
-  height: 140px;
-  left: -42px;
-  bottom: 34px;
-  background: #14b8a6;
-  animation: shape-drift 7s ease-in-out 600ms infinite reverse;
+.design-board .tilted-card-img {
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 38px 24px 0;
+  box-sizing: border-box;
+  border-radius: 16px;
 }
 
 .board-header {
@@ -167,18 +161,6 @@
   border-radius: 50%;
   background: #fff;
   opacity: 0.9;
-}
-
-.hero-media img {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: 3;
-  width: min(78%, 300px);
-  height: auto;
-  display: block;
-  transform: translateX(-50%);
-  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.28));
 }
 
 .floating-card {
@@ -216,17 +198,6 @@
   bottom: 42px;
 }
 
-@keyframes shape-drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(-14px, 18px) scale(1.08);
-  }
-}
-
 @media (max-width: 760px) {
   .hero-section {
     grid-template-columns: 1fr;
@@ -244,7 +215,12 @@
 
   .design-board {
     width: min(100%, 330px);
-    min-height: 330px;
+    height: 330px;
+  }
+
+  .design-board .tilted-card-inner,
+  .design-board .tilted-card-img {
+    height: 330px !important;
   }
 
   .floating-card {
@@ -265,8 +241,6 @@
   .hero-actions,
   .hero-media,
   .design-board,
-  .design-board::before,
-  .design-board::after,
   .floating-card {
     animation: none;
   }
