@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import heroImg from '../assets/hero.png'
+import TextPressure from './TextPressure'
 import './Hero.css'
+
 
 function Hero() {
   return (
@@ -34,7 +36,7 @@ function Hero() {
             show: { opacity: 1, y: 0 },
           }}
         >
-          Designing sharp visuals and building smooth web experiences.
+          <TextPressure text="Designing sharp visuals and building smooth web experiences" />
         </motion.h1>
         <motion.p
           className="hero-text"
@@ -124,6 +126,7 @@ function Hero() {
         </motion.div>
       </motion.div>
     </motion.section>
+    
   )
 }
 

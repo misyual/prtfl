@@ -4,6 +4,7 @@
   gap: 40px;
   padding: 72px 48px;
   border-top: 1px solid var(--border);
+  background-color: #120F17;
 }
 
 .about-section .eyebrow {

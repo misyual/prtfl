@@ -23,9 +23,9 @@ const DotField = memo(({
   const svgRef = useRef(null);
   const glowRef = useRef(null);
   const dotsRef = useRef([]);
-  const mouseRef = useRef({ x: -9999, y: -9999, prevX: -9999, prevY: -9999, speed: 0 });
+  const mouseRef = useRef({ x: -9999, y: -9999, prevX: -9999, prevY: -9999, speed: 0, active: false });
   const rafRef = useRef(null);
-  const sizeRef = useRef({ w: 0, h: 0, offsetX: 0, offsetY: 0 });
+  const sizeRef = useRef({ w: 0, h: 0, left: 0, top: 0 });
   const glowOpacity = useRef(0);
   const engagement = useRef(0);
   const propsRef = useRef({});
@@ -47,7 +47,7 @@ const DotField = memo(({
     }
 
     function doResize() {
-      const rect = canvas.parentElement.getBoundingClientRect();
+      const rect = canvas.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
 
@@ -60,11 +60,17 @@ const DotField = memo(({
       sizeRef.current = {
         w,
         h,
-        offsetX: rect.left + window.scrollX,
-        offsetY: rect.top + window.scrollY,
+        left: rect.left,
+        top: rect.top,
       };
 
       buildDots(w, h);
+    }
+
+    function updateBounds() {
+      const rect = canvas.getBoundingClientRect();
+      sizeRef.current.left = rect.left;
+      sizeRef.current.top = rect.top;
     }
 
     function buildDots(w, h) {
@@ -87,10 +93,20 @@ const DotField = memo(({
       dotsRef.current = dots;
     }
 
-    function onMouseMove(e) {
+    function onPointerMove(e) {
+      updateBounds();
       const s = sizeRef.current;
-      mouseRef.current.x = e.pageX - s.offsetX;
-      mouseRef.current.y = e.pageY - s.offsetY;
+      const x = e.clientX - s.left;
+      const y = e.clientY - s.top;
+      mouseRef.current.x = x;
+      mouseRef.current.y = y;
+      mouseRef.current.active = x >= 0 && x <= s.w && y >= 0 && y <= s.h;
+    }
+
+    function onPointerLeave() {
+      mouseRef.current.x = -9999;
+      mouseRef.current.y = -9999;
+      mouseRef.current.active = false;
     }
 
     function updateMouseSpeed() {
@@ -117,8 +133,8 @@ const DotField = memo(({
       const len = dots.length;
       const t = frameCount * 0.02;
 
-      const targetEngagement = Math.min(m.speed / 5, 1);
-      engagement.current += (targetEngagement - engagement.current) * 0.06;
+      const targetEngagement = m.active ? 1 : 0;
+      engagement.current += (targetEngagement - engagement.current) * (m.active ? 0.28 : 0.08);
       if (engagement.current < 0.001) engagement.current = 0;
       const eng = engagement.current;
 
@@ -156,8 +172,8 @@ const DotField = memo(({
             const t = 1 - dist / cr;
             const push = t * t * p.bulgeStrength * eng;
             const angle = Math.atan2(dy, dx);
-            d.sx += (d.ax - Math.cos(angle) * push - d.sx) * 0.15;
-            d.sy += (d.ay - Math.sin(angle) * push - d.sy) * 0.15;
+            d.sx += (d.ax - Math.cos(angle) * push - d.sx) * 0.35;
+            d.sy += (d.ay - Math.sin(angle) * push - d.sy) * 0.35;
           } else {
             const angle = Math.atan2(dy, dx);
             const move = (500 / dist) * (m.speed * p.cursorForce);
@@ -207,7 +223,8 @@ const DotField = memo(({
 
     doResize();
     window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('pointerleave', onPointerLeave);
     rafRef.current = requestAnimationFrame(tick);
 
     rebuildRef.current = () => {
@@ -220,9 +237,9 @@ const DotField = memo(({
       clearInterval(speedInterval);
       clearTimeout(resizeTimer);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerleave', onPointerLeave);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

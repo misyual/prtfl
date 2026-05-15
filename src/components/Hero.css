@@ -37,9 +37,9 @@
 }
 
 .hero-copy h1 {
-  max-width: 720px;
+  max-width: 90%;
   letter-spacing: 0;
-  font-size: 48px;
+  font-size: 2rem;
   line-height: 1.1;
 }
 
