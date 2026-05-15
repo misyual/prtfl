@@ -38,7 +38,6 @@ const DotField = memo(({
     const glowEl = glowRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let resizeTimer;
 
     function resize() {
@@ -48,11 +47,12 @@ const DotField = memo(({
 
     function doResize() {
       const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
+      const w = Math.ceil(window.innerWidth);
+      const h = Math.ceil(window.innerHeight);
+      const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
 
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
+      canvas.width = Math.ceil(w * dpr);
+      canvas.height = Math.ceil(h * dpr);
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -223,6 +223,7 @@ const DotField = memo(({
 
     doResize();
     window.addEventListener('resize', resize);
+    window.visualViewport?.addEventListener('resize', resize);
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     window.addEventListener('pointerleave', onPointerLeave);
     rafRef.current = requestAnimationFrame(tick);
@@ -237,6 +238,7 @@ const DotField = memo(({
       clearInterval(speedInterval);
       clearTimeout(resizeTimer);
       window.removeEventListener('resize', resize);
+      window.visualViewport?.removeEventListener('resize', resize);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerleave', onPointerLeave);
     };

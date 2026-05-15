@@ -7,6 +7,15 @@
   color: inherit;
 }
 
+.text-pressure-word {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.text-pressure-word:not(:last-child) {
+  margin-right: 0.18em;
+}
+
 .text-pressure-char {
   display: inline-block;
   transform-origin: center bottom;

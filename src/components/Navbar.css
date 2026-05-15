@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  width: min(100% - 96px, 1120px);
   min-height: 72px;
   padding: 0 48px;
   border-bottom: 1px solid rgb(255 255 255 / 0.12);
@@ -85,6 +86,7 @@
 
 @media (max-width: 640px) {
   .navbar {
+    width: calc(100% - 32px);
     min-height: 64px;
     padding: 0 20px;
   }

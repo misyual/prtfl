@@ -5,22 +5,17 @@
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
   align-items: center;
   gap: 40px;
+  width: min(100% - 96px, 1120px);
   min-height: calc(100svh - 72px);
-  padding: 72px 48px;
+  padding: 72px 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
   background:
     transparent;
 }
 
 .hero-section::before {
-  content: '';
-  position: absolute;
-  inset: 24px;
-  z-index: -1;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  opacity: 0.65;
+  content: none;
 }
 
 .hero-copy {
@@ -202,6 +197,7 @@
   .hero-section {
     grid-template-columns: 1fr;
     min-height: auto;
+    width: calc(100% - 40px);
     padding: 44px 20px 56px;
   }
 

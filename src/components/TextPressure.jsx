@@ -21,7 +21,7 @@ const TextPressure = memo(({
   const pointerRef = useRef({ x: -9999, y: -9999, active: false })
   const frameRef = useRef(null)
 
-  const chars = useMemo(() => Array.from(text), [text])
+  const words = useMemo(() => text.trim().split(/\s+/), [text])
 
   useEffect(() => {
     if (!fontUrl || document.getElementById(`text-pressure-font-${fontFamily.replace(/\s+/g, '-')}`)) {
@@ -113,16 +113,26 @@ const TextPressure = memo(({
         fontStyle: italic ? 'italic' : 'normal',
       }}
     >
-      {chars.map((char, index) => (
-        <span
-          // The text is static, so index keeps the split characters stable.
-          key={`${char}-${index}`}
-          ref={(node) => {
-            charRefs.current[index] = node
-          }}
-          className="text-pressure-char"
-        >
-          {char === ' ' ? '\u00a0' : char}
+      {words.map((word, wordIndex) => (
+        <span className="text-pressure-word" key={`${word}-${wordIndex}`}>
+          {Array.from(word).map((char, charIndex) => {
+            const refIndex = words
+              .slice(0, wordIndex)
+              .reduce((total, currentWord) => total + currentWord.length, 0) + charIndex
+
+            return (
+              <span
+                // The text is static, so the index keeps split characters stable.
+                key={`${char}-${wordIndex}-${charIndex}`}
+                ref={(node) => {
+                  charRefs.current[refIndex] = node
+                }}
+                className="text-pressure-char"
+              >
+                {char}
+              </span>
+            )
+          })}
         </span>
       ))}
     </span>

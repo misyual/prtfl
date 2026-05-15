@@ -979,10 +979,17 @@ function SplashCursor({
     }
 
     // Named event handlers for proper cleanup
+    function getCanvasPoint(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: scaleByPixelRatio(clientX - rect.left),
+        y: scaleByPixelRatio(clientY - rect.top),
+      };
+    }
+
     function handleMouseDown(e) {
       let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
+      let { x: posX, y: posY } = getCanvasPoint(e.clientX, e.clientY);
       updatePointerDownData(pointer, -1, posX, posY);
       clickSplat(pointer);
     }
@@ -990,8 +997,7 @@ function SplashCursor({
     let firstMouseMoveHandled = false;
     function handleMouseMove(e) {
       let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
+      let { x: posX, y: posY } = getCanvasPoint(e.clientX, e.clientY);
       if (!firstMouseMoveHandled) {
         let color = generateColor();
         updatePointerMoveData(pointer, posX, posY, color);
@@ -1005,8 +1011,7 @@ function SplashCursor({
       const touches = e.targetTouches;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
+        let { x: posX, y: posY } = getCanvasPoint(touches[i].clientX, touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
     }
@@ -1015,8 +1020,7 @@ function SplashCursor({
       const touches = e.targetTouches;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
+        let { x: posX, y: posY } = getCanvasPoint(touches[i].clientX, touches[i].clientY);
         updatePointerMoveData(pointer, posX, posY, pointer.color);
       }
     }
@@ -1061,10 +1065,10 @@ function SplashCursor({
   return (
     <div
       style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: 50,
+        zIndex: 1,
         pointerEvents: 'none',
         width: '100%',
         height: '100%'
@@ -1074,8 +1078,8 @@ function SplashCursor({
         ref={canvasRef}
         id="fluid"
         style={{
-          width: '100vw',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
           display: 'block'
         }}
       />

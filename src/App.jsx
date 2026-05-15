@@ -12,15 +12,7 @@ import SplashCursor from './components/SplashCursor'
 function App() {
   return (
     <>
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: 0,
-        pointerEvents: 'none'
-      }}>
+      <div className="background-stage">
         <DotField
           dotRadius={2.5}
           dotSpacing={16}
