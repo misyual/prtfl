@@ -31,14 +31,26 @@ function Hero() {
         >
           Frontend Developer + Graphic Designer
         </motion.p>
+        
         <motion.h1
-          variants={{
+        variants={{
             hidden: { opacity: 0, y: 22 },
             show: { opacity: 1, y: 0 },
           }}
         >
-          <TextPressure text="Designing sharp visuals and building smooth web experiences" />
+          <TextPressure 
+          text="Designing sharp visuals and building smooth web experiences"
+          flex
+          alpha={false}
+          stroke={false}
+          width
+          weight
+          italic
+          textColor="#ffffff"
+          strokeColor="#5227FF"
+          minFontSize={36} />
         </motion.h1>
+
         <motion.p
           className="hero-text"
           variants={{

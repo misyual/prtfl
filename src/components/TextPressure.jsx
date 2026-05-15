@@ -5,9 +5,16 @@ import './TextPressure.css'
 const TextPressure = memo(({
   text,
   className = '',
+  fontFamily = 'Compressa VF',
+  fontUrl = 'https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2',
+  textColor = 'inherit',
+  minFontSize = 36,
   minScale = 1,
   maxScale = 1.32,
   influence = 180,
+  width = true,
+  weight = true,
+  italic = false,
 }) => {
   const rootRef = useRef(null)
   const charRefs = useRef([])
@@ -15,6 +22,30 @@ const TextPressure = memo(({
   const frameRef = useRef(null)
 
   const chars = useMemo(() => Array.from(text), [text])
+
+  useEffect(() => {
+    if (!fontUrl || document.getElementById(`text-pressure-font-${fontFamily.replace(/\s+/g, '-')}`)) {
+      return undefined
+    }
+
+    const style = document.createElement('style')
+    style.id = `text-pressure-font-${fontFamily.replace(/\s+/g, '-')}`
+    style.textContent = `
+      @font-face {
+        font-family: '${fontFamily}';
+        src: url('${fontUrl}') format('woff2');
+        font-weight: 100 900;
+        font-stretch: 50% 200%;
+        font-style: normal;
+        font-display: swap;
+      }
+    `
+    document.head.appendChild(style)
+
+    return () => {
+      style.remove()
+    }
+  }, [fontFamily, fontUrl])
 
   useEffect(() => {
     const root = rootRef.current
@@ -28,7 +59,7 @@ const TextPressure = memo(({
 
         if (!pointer.active) {
           char.style.transform = 'scaleX(1) scaleY(1)'
-          char.style.fontVariationSettings = '"wght" 500, "wdth" 100'
+          char.style.fontVariationSettings = `"wght" 500, "wdth" 100`
           return
         }
 
@@ -40,11 +71,11 @@ const TextPressure = memo(({
         const distance = Math.sqrt(dx * dx + dy * dy)
         const pressure = Math.max(0, 1 - distance / influence)
         const scale = minScale + (maxScale - minScale) * pressure
-        const weight = 500 + 350 * pressure
-        const width = 100 + 45 * pressure
+        const pressureWeight = 500 + 350 * pressure
+        const pressureWidth = 100 + 45 * pressure
 
         char.style.transform = `scaleX(${scale}) scaleY(${1 + pressure * 0.08})`
-        char.style.fontVariationSettings = `"wght" ${weight}, "wdth" ${width}`
+        char.style.fontVariationSettings = `"wght" ${weight ? pressureWeight : 500}, "wdth" ${width ? pressureWidth : 100}`
       })
 
       frameRef.current = requestAnimationFrame(updateChars)
@@ -69,10 +100,19 @@ const TextPressure = memo(({
       root.removeEventListener('pointerleave', onPointerLeave)
       cancelAnimationFrame(frameRef.current)
     }
-  }, [influence, maxScale, minScale])
+  }, [influence, maxScale, minScale, weight, width])
 
   return (
-    <span ref={rootRef} className={`text-pressure ${className}`}>
+    <span
+      ref={rootRef}
+      className={`text-pressure ${className}`}
+      style={{
+        color: textColor,
+        fontFamily: `'${fontFamily}', Impact, 'Arial Narrow', system-ui, sans-serif`,
+        fontSize: `clamp(${minFontSize}px, 8vw, 104px)`,
+        fontStyle: italic ? 'italic' : 'normal',
+      }}
+    >
       {chars.map((char, index) => (
         <span
           // The text is static, so index keeps the split characters stable.

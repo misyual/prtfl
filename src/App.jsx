@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import './App.css'
 import DotField from './components/DotField'
 
+
 function App() {
   return (
     <>
