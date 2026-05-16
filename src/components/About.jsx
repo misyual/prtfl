@@ -1,8 +1,9 @@
 import { motion } from 'motion/react'
 import './About.css'
 import ElectricBorder from './ElectricBorder'
+import TextType from './TextType'
 
-const skills = ['React', 'JavaScript', 'HTML', 'CSS', 'Responsive Design', 'Git']
+const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS']
 
 function About() {
   return (
@@ -23,7 +24,7 @@ function About() {
       >
         <motion.div>
           <p className="eyebrow">About</p>
-          <h2>A developer focused on simple, polished interfaces.</h2>
+          <TextType text="A Graphic Designer & Front-End Developer" />
         </motion.div>
         <motion.div
           className="about-content"
@@ -33,9 +34,11 @@ function About() {
           transition={{ duration: 0.6, delay: 0.12, ease: 'easeOut' }}
         >
           <p>
-            I enjoy creating portfolio sites, landing pages, and app screens that
-            are fast, accessible, and easy to understand. My work starts with clear
-            structure, then adds visual detail where it helps the user.
+            I focus on creating high-impact visual design with a strong emphasis on 
+            clean structure, intentional details, and memorable layouts. 
+            Whether designing branding assets, landing pages, or user interfaces, 
+            I leverage my front-end development skills to seamlessly bridge the gap between 
+            creative vision and functional, accessible digital products.
           </p>
           <div className="skill-list" aria-label="Skills">
             {skills.map((skill, index) => (

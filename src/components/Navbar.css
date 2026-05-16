@@ -21,6 +21,7 @@
   box-sizing: border-box;
   margin-top: 30px;
   border-radius: 10px;
+  clip-path: inset(0 round 10px);
 }
 
 .navbar-logo {
@@ -65,7 +66,7 @@
 
 .navbar .gooey-nav-container nav ul,
 .navbar .gooey-nav-container nav ul li {
-  color: rgb(244 238 255 / 0.82);
+  --text: rgb(244 238 255 / 0.82);
 }
 
 .navbar .gooey-nav-container nav ul li:hover {
@@ -75,13 +76,16 @@
 
 .navbar .gooey-nav-container nav ul li::after,
 .navbar .gooey-nav-container .effect.filter::after {
-  background: linear-gradient(135deg, #ffffff, #d8c2ff);
+  background: linear-gradient(135deg, #ffffff, #d8c2ff) !important;
   box-shadow: 0 10px 28px rgb(168 85 247 / 0.3);
 }
 
 .navbar .gooey-nav-container nav ul li.active,
+.navbar .gooey-nav-container nav ul li.active a,
 .navbar .gooey-nav-container .effect.text.active {
-  color: #100b18;
+  color: #100b18 !important;
+  position: relative;
+  z-index: 5;
 }
 
 @media (max-width: 640px) {

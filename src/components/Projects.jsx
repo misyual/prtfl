@@ -3,24 +3,24 @@ import './Projects.css'
 
 const projects = [
   {
-    title: 'Brand Identity Design',
+    title: 'Product Ecommerce Cover Design',
     description:
-      'Logo concepts, color palettes, typography choices, and visual guidelines for a clear brand look.',
-    tags: ['Logo', 'Branding', 'Typography'],
+      'Custom product cover designs for Shopee, Tiktok, and Lazada of Starbright, featuring clean layouts, product highlights, and branding elements to make listings more appealing and professional.',
+    tags: ['Product Design', 'Ecommerce'],
     preview: 'brand',
   },
   {
-    title: 'Social Media Graphics',
+    title: 'Ecommerce Banners Design',
     description:
-      'Scroll-stopping post layouts, campaign graphics, and story templates made for digital platforms.',
-    tags: ['Canva', 'Layout', 'Content'],
+      'Modern ecommerce banner designs for promotions, sales, and social media marketing, created to attract customers and improve online engagement.',
+    tags: ['Banners', 'Ecommerce'],
     preview: 'social',
   },
   {
-    title: 'Poster and Print Design',
+    title: 'Online FlipBook Catalog',
     description:
-      'Event posters, promotional flyers, and print-ready designs with strong visual hierarchy.',
-    tags: ['Poster', 'Flyer', 'Print'],
+      'Event posters, promotional flyers, and print-ready designs with strong visual hierarchy.Interactive digital catalog designs for showcasing products, services, or collections in a clean and organized flipbook presentation.',
+    tags: ['System', 'Catalog'],
     preview: 'poster',
   },
 ]
