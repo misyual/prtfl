@@ -11,23 +11,18 @@
 .gooey-nav-container {
   position: relative;
 
-  /* Particle colors */
+  /* Particle splash colors */
   --color-1: #c084fc;
   --color-2: #60a5fa;
   --color-3: #34d399;
   --color-4: #f472b6;
 
-  /* Nav tokens — hardcoded so no parent needed */
+  /* Theme Configurations */
   --nav-text:        rgba(244, 238, 255, 0.82);
-  --nav-text-active: #ffffff;
-  --nav-pill:        #a855f7;          /* pill background */
-  --nav-pill-shadow: rgba(168, 85, 247, 0.35);
+  --nav-text-active: #100b18;          /* High contrast text against white */
+  --nav-pill:        #ffffff;          /* Pure white sliding pill background */
+  --nav-pill-shadow: rgba(255, 255, 255, 0.22);
 }
-
-/* Per-item pill colors (optional — delete if you want one color) */
-.gooey-nav-container nav ul li:nth-child(1) { --nav-pill: #a855f7; --nav-pill-shadow: rgba(168, 85, 247, 0.35); }
-.gooey-nav-container nav ul li:nth-child(2) { --nav-pill: #60a5fa; --nav-pill-shadow: rgba(96, 165, 250, 0.35); }
-.gooey-nav-container nav ul li:nth-child(3) { --nav-pill: #34d399; --nav-pill-shadow: rgba(52, 211, 153, 0.35); }
 
 /* ─── NAV LAYOUT ────────────────────────────────────────── */
 .gooey-nav-container nav {
@@ -38,7 +33,7 @@
 
 .gooey-nav-container nav ul {
   display: flex;
-  gap: 2em;
+  gap: 10px; /* Aligns smoothly with your structural layout styling gap */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -49,53 +44,35 @@
 
 /* ─── NAV ITEMS ─────────────────────────────────────────── */
 .gooey-nav-container nav ul li {
-  border-radius: 100vw;
+  border-radius: 6px;
   position: relative;
   cursor: pointer;
   color: var(--nav-text);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .gooey-nav-container nav ul li a {
-  display: inline-block;
-  padding: 0.6em 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 16px;
   color: inherit;
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
+  position: relative;
+  z-index: 5; /* Forces actual anchor links above background effect paths */
 }
 
 .gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
   box-shadow: 0 0 0.5px 1.5px var(--nav-pill);
 }
 
-/* The pill background behind each item */
-.gooey-nav-container nav ul li::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 100vw;
-  background: var(--nav-pill);
-  box-shadow: 0 8px 24px var(--nav-pill-shadow);
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
-
-/* Active item — text color + show pill */
+/* Active item state text color fallback layer */
 .gooey-nav-container nav ul li.active {
-  color: var(--nav-text-active);
-  text-shadow: none;
-}
-
-.gooey-nav-container nav ul li.active::after {
-  opacity: 1;
-  transform: scale(1);
+  color: var(--nav-text-active) !important;
 }
 
 /* ─── GOOEY EFFECT LAYER ────────────────────────────────── */
@@ -110,15 +87,7 @@
   display: grid;
   place-items: center;
   z-index: 1;
-}
-
-.gooey-nav-container .effect.filter {
-  filter: blur(0px) contrast(100) blur(0);
-  mix-blend-mode: normal;
-}
-
-.gooey-nav-container .effect.filter::before {
-  content: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .gooey-nav-container .effect.filter::after {
@@ -126,21 +95,8 @@
   position: absolute;
   inset: 0;
   background: var(--nav-pill);
-  transform: scale(0);
-  opacity: 0;
-  z-index: -1;
-  border-radius: 100vw;
-}
-
-.gooey-nav-container .effect.active::after {
-  animation: pill 0.3s ease both;
-}
-
-@keyframes pill {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  box-shadow: 0 8px 24px var(--nav-pill-shadow);
+  border-radius: 6px; /* Matches navbar wrapper border-radii values */
 }
 
 /* ─── PARTICLES ─────────────────────────────────────────── */
@@ -148,8 +104,8 @@
 .point {
   display: block;
   opacity: 0;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   border-radius: 100%;
   transform-origin: center;
 }
@@ -157,8 +113,8 @@
 .particle {
   --time: 5s;
   position: absolute;
-  top: calc(50% - 8px);
-  left: calc(50% - 8px);
+  top: calc(50% - 7px);
+  left: calc(50% - 7px);
   animation: particle calc(var(--time)) ease 1 -350ms;
 }
 
