@@ -1,15 +1,17 @@
 .text-pressure {
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: baseline;
   justify-content: inherit;
   line-height: inherit;
   color: inherit;
+  white-space: nowrap;
 }
 
 .text-pressure-word {
   display: inline-flex;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .text-pressure-word:not(:last-child) {

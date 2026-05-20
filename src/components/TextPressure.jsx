@@ -1,5 +1,4 @@
 import { memo, useEffect, useMemo, useRef } from 'react'
-
 import './TextPressure.css'
 
 const TextPressure = memo(({
@@ -34,17 +33,14 @@ const TextPressure = memo(({
       @font-face {
         font-family: '${fontFamily}';
         src: url('${fontUrl}') format('woff2');
-        font-weight: 100 900;
-        font-stretch: 50% 200%;
+        font-weight: 50 2000;
+        font-stretch: 30% 300%;
         font-style: normal;
         font-display: swap;
       }
     `
     document.head.appendChild(style)
-
-    return () => {
-      style.remove()
-    }
+    return () => { style.remove() }
   }, [fontFamily, fontUrl])
 
   useEffect(() => {
@@ -74,7 +70,7 @@ const TextPressure = memo(({
         const pressureWeight = 500 + 350 * pressure
         const pressureWidth = 100 + 45 * pressure
 
-        char.style.transform = `scaleX(${scale}) scaleY(${1 + pressure * 0.08})`
+        char.style.transform = `scaleY(${scale}) scaleX(1)`
         char.style.fontVariationSettings = `"wght" ${weight ? pressureWeight : 500}, "wdth" ${width ? pressureWidth : 100}`
       })
 
@@ -119,14 +115,10 @@ const TextPressure = memo(({
             const refIndex = words
               .slice(0, wordIndex)
               .reduce((total, currentWord) => total + currentWord.length, 0) + charIndex
-
             return (
               <span
-                // The text is static, so the index keeps split characters stable.
                 key={`${char}-${wordIndex}-${charIndex}`}
-                ref={(node) => {
-                  charRefs.current[refIndex] = node
-                }}
+                ref={(node) => { charRefs.current[refIndex] = node }}
                 className="text-pressure-char"
               >
                 {char}
@@ -140,5 +132,4 @@ const TextPressure = memo(({
 })
 
 TextPressure.displayName = 'TextPressure'
-
 export default TextPressure

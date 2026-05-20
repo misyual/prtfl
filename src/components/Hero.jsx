@@ -33,22 +33,15 @@ function Hero() {
         </motion.p>
         
         <motion.h1
-        variants={{
+            variants={{
             hidden: { opacity: 0, y: 22 },
             show: { opacity: 1, y: 0 },
           }}
         >
-          <TextPressure 
-          text="Designing sharp visuals and building smooth web experiences"
-          flex
-          alpha={false}
-          stroke={false}
-          width
-          weight
-          italic
-          textColor="#ffffff"
-          strokeColor="#5227FF"
-          minFontSize={36} />
+          <TextPressure text="Designing sharp" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
+          <TextPressure text="visuals and" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
+          <TextPressure text="building smooth" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
+          <TextPressure text="web experiences" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
         </motion.h1>
 
         <motion.p
@@ -58,9 +51,9 @@ function Hero() {
             show: { opacity: 1, y: 0 },
           }}
         >
-          I combine layout, branding, and React development to create portfolio
-          pages, digital graphics, and interfaces that feel polished from the
-          first click.
+          Passionate about graphic design and front-end development, 
+          I create visually appealing designs and user-friendly web 
+          experiences with attention to detail.
         </motion.p>
         <motion.div
           className="hero-highlights"
@@ -70,7 +63,7 @@ function Hero() {
             show: { opacity: 1, y: 0 },
           }}
         >
-          {['Branding', 'Web UI', 'Posters'].map((item) => (
+          {['Poster Design', 'Web UI', 'Product Cover Photo'].map((item) => (
             <motion.span key={item} whileHover={{ y: -4, scale: 1.04 }}>
               {item}
             </motion.span>

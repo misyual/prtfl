@@ -21,7 +21,7 @@
   box-sizing: border-box;
   margin-top: 30px;
   border-radius: 10px;
-  clip-path: inset(0 round 10px);
+  overflow: hidden;
 }
 
 .navbar-logo {
@@ -35,10 +35,40 @@
 .navbar-links {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
-.navbar-logo {
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  min-height: 36px;
   text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.nav-label {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(244, 238, 255, 0.82);
+  transition: color 0.2s ease;
+}
+
+.nav-item--active .nav-label {
+  color: #100b18;
 }
 
 @media (max-width: 640px) {

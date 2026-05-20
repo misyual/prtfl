@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import './Navbar.css'
-import GooeyNav from './GooeyNav'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -9,6 +9,8 @@ const navLinks = [
 ]
 
 function Navbar() {
+  const [active, setActive] = useState(0)
+
   return (
     <motion.header
       className="navbar"
@@ -19,18 +21,25 @@ function Navbar() {
       <a className="navbar-logo" href="#top" aria-label="Back to top">
         Portfolio
       </a>
-      <div className="navbar-links">
-        <GooeyNav
-          items={navLinks}
-          particleCount={20}
-          particleDistances={[90, 10]}
-          particleR={100}
-          initialActiveIndex={0}
-          animationTime={600}
-          timeVariance={300}
-          colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-        />
-      </div>
+      <nav className="navbar-links">
+        {navLinks.map((link, i) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={'nav-item' + (active === i ? ' nav-item--active' : '')}
+            onClick={(e) => setActive(i)}
+          >
+            {active === i && (
+              <motion.span
+                className="nav-pill"
+                layoutId="nav-pill"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="nav-label">{link.label}</span>
+          </a>
+        ))}
+      </nav>
     </motion.header>
   )
 }
