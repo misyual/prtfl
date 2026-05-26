@@ -1,9 +1,34 @@
 import heroImg from '../assets/funny-cats-2-20250212.webp'
 import './Hero.css'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 
 function Hero() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-copy', {
+        opacity: 0,
+        y: 60,
+        duration: 3,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="hero-section" id="top">
+    <section ref={sectionRef} className="hero-section" id="top">
       <div className="hero-copy">
         <p className="eyebrow">
           Frontend Developer + Graphic Designer
