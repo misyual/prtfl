@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { motion } from 'motion/react'
 import './Projects.css'
 
 const uploadedImages = Object.values(
@@ -95,21 +94,15 @@ function Projects() {
   const projectModal =
     selectedProject &&
     createPortal(
-      <motion.div
+      <div
         className="project-modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-modal-title"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
         onClick={() => setActiveProject(null)}
       >
-        <motion.div
+        <div
           className="project-modal-panel"
-          initial={{ y: 32, scale: 0.98 }}
-          animate={{ y: 0, scale: 1 }}
-          transition={{ duration: 0.24, ease: 'easeOut' }}
           onClick={(event) => event.stopPropagation()}
         >
           <button
@@ -151,38 +144,25 @@ function Projects() {
               ))}
             </div>
           )}
-        </motion.div>
-      </motion.div>,
+        </div>
+      </div>,
       document.body,
     )
 
   return (
     <>
-      <motion.section
-        className="projects-section"
-        id="projects"
-        initial={{ opacity: 0, y: 36 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <motion.div className="section-heading">
+      <section className="projects-section" id="projects">
+        <div className="section-heading">
           <p className="eyebrow">Projects</p>
           <h2>Selected work</h2>
-        </motion.div>
+        </div>
         <div className="project-grid">
           {projectsWithImages.map((project, index) => (
-            <motion.button
+            <button
               type="button"
               className="project-card"
               key={project.title}
               onClick={() => openProject(index)}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -8 }}
-              whileTap={{ scale: 0.98 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
             >
               <div className={`project-preview ${project.preview}`}>
                 {project.previewImage ? (
@@ -200,15 +180,13 @@ function Projects() {
               <p>{project.description}</p>
               <div className="tag-list" aria-hidden="true">
                 {project.tags.map((tag) => (
-                  <motion.span key={tag} whileHover={{ scale: 1.06 }}>
-                    {tag}
-                  </motion.span>
+                  <span key={tag}>{tag}</span>
                 ))}
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {projectModal}
     </>

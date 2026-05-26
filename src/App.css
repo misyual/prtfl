@@ -1,68 +1,42 @@
 .portfolio-shell {
   width: 100%;
   min-height: 100svh;
-  display: grid;
-  justify-items: center;
-  background: transparent;
+  background: #000;
+  color: #fff;
 }
 
 .portfolio-shell > main {
   width: 100%;
-  display: grid;
-  justify-items: center;
-  gap: 56px;
-  padding-bottom: 56px;
 }
 
-.portfolio-shell > main > :not(.hero-section),
-.portfolio-shell > footer {
-  width: min(100% - 96px, 1120px);
+.section,
+.hero-section,
+.projects-section,
+.contact-section,
+.footer,
+.navbar {
+  width: 100%;
   box-sizing: border-box;
 }
 
-.background-stage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  pointer-events: none;
+.section,
+.projects-section,
+.contact-section {
+  border-top: 1px solid rgb(255 255 255 / 0.16);
 }
 
-.background-stage::before,
-.background-stage::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  z-index: 0;
-  width: 120vw;
-  height: 38vh;
-  border-radius: 50%;
-  background: linear-gradient(90deg, transparent 8%, rgb(168 85 247 / 0.72), rgb(192 132 252 / 0.46), transparent 82%);
-  filter: blur(42px);
-  opacity: 0.78;
-  transform: translateX(-50%) rotate(-10deg);
-}
-
-.background-stage::before {
-  bottom: -12vh;
-}
-
-.background-stage::after {
-  right: -12vw;
-  bottom: 2vh;
-  left: auto;
-  width: 78vw;
-  height: 26vh;
-  opacity: 0.52;
-  transform: rotate(-7deg);
+.eyebrow {
+  margin: 0 0 18px;
+  color: rgb(255 255 255 / 0.62);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 @media (max-width: 760px) {
-  .portfolio-shell > main > :not(.hero-section),
-  .portfolio-shell > footer {
-    width: calc(100% - 40px);
+  .eyebrow {
+    margin-bottom: 14px;
   }
 }

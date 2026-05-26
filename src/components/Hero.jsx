@@ -1,148 +1,37 @@
-import { motion } from 'motion/react'
 import heroImg from '../assets/funny-cats-2-20250212.webp'
-import TextPressure from './TextPressure'
-import TiltedCard from './TiltedCard'
 import './Hero.css'
-
 
 function Hero() {
   return (
-    <motion.section
-      className="hero-section"
-      id="top"
-      initial="hidden"
-      animate="show"
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.12,
-          },
-        },
-      }}
-    >
-      <motion.div className="hero-copy">
-        <motion.p
-          className="eyebrow"
-          variants={{
-            hidden: { opacity: 0, y: 18 },
-            show: { opacity: 1, y: 0 },
-          }}
-        >
+    <section className="hero-section" id="top">
+      <div className="hero-copy">
+        <p className="eyebrow">
           Frontend Developer + Graphic Designer
-        </motion.p>
-        
-        <motion.h1
-            variants={{
-            hidden: { opacity: 0, y: 22 },
-            show: { opacity: 1, y: 0 },
-          }}
-        >
-          <TextPressure text="Designing sharp" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
-          <TextPressure text="visuals and" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
-          <TextPressure text="building smooth" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
-          <TextPressure text="web experiences" flex={false} alpha={false} stroke={false} width weight italic textColor="#ffffff" minFontSize={20} maxScale={1.15} influence={500} />
-        </motion.h1>
-
-        <motion.p
-          className="hero-text"
-          variants={{
-            hidden: { opacity: 0, y: 22 },
-            show: { opacity: 1, y: 0 },
-          }}
-        >
+        </p>
+        <h1>Designing sharp visuals and building smooth web experiences.</h1>
+        <p className="hero-text">
           Passionate about graphic design and front-end development, 
           I create visually appealing designs and user-friendly web 
           experiences with attention to detail.
-        </motion.p>
-        <motion.div
-          className="hero-highlights"
-          aria-label="Creative services"
-          variants={{
-            hidden: { opacity: 0, y: 18 },
-            show: { opacity: 1, y: 0 },
-          }}
-        >
+        </p>
+        <div className="hero-highlights" aria-label="Creative services">
           {['Poster Design', 'Web UI', 'Product Cover Photo'].map((item) => (
-            <motion.span key={item} whileHover={{ y: -4, scale: 1.04 }}>
-              {item}
-            </motion.span>
+            <span key={item}>{item}</span>
           ))}
-        </motion.div>
-        <motion.div
-          className="hero-actions"
-          variants={{
-            hidden: { opacity: 0, y: 18 },
-            show: { opacity: 1, y: 0 },
-          }}
-        >
-          <motion.a
-            className="button primary"
-            href="#projects"
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.96 }}
-          >
+        </div>
+        <div className="hero-actions">
+          <a className="button primary" href="#projects">
             View work
-          </motion.a>
-          <motion.a
-            className="button secondary"
-            href="#contact"
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.96 }}
-          >
+          </a>
+          <a className="button secondary" href="#contact">
             Contact me
-          </motion.a>
-        </motion.div>
-      </motion.div>
-      <motion.div
-        className="hero-media"
-        aria-label="Portfolio profile artwork"
-        variants={{
-          hidden: { opacity: 0, scale: 0.92, rotate: -4 },
-          show: { opacity: 1, scale: 1, rotate: 0 },
-        }}
-      >
-        <motion.div className="design-board">
-          <TiltedCard
-            imageSrc={heroImg}
-            altText="Portfolio profile artwork"
-            containerHeight="390px"
-            containerWidth="100%"
-            imageHeight="390px"
-            imageWidth="100%"
-            rotateAmplitude={10}
-            scaleOnHover={1.03}
-            showMobileWarning={false}
-            showTooltip={false}
-            displayOverlayContent
-            overlayContent={
-              <div className="board-header" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-            }
-          />
-          <motion.div
-            className="floating-card card-one"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <strong>Visual</strong>
-            <span>Identity</span>
-          </motion.div>
-          <motion.div
-            className="floating-card card-two"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 5.4, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <strong>React</strong>
-            <span>Build</span>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </motion.section>
-    
+          </a>
+        </div>
+      </div>
+      <div className="hero-media" aria-label="Portfolio profile artwork">
+        <img src={heroImg} alt="Portfolio profile artwork" />
+      </div>
+    </section>
   )
 }
 
