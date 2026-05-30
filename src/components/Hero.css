@@ -74,11 +74,12 @@
 
 .hero-media {
   width: 100%;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  display: flex;
+  justify-content: center;
+  background: transparent;
 }
 
-.hero-media img {
+.hero-media > img {
   display: block;
   width: 100%;
   height: min(58vw, 620px);
@@ -93,7 +94,7 @@
     min-height: auto;
   }
 
-  .hero-media img {
+  .hero-media > img {
     height: 420px;
   }
 }
@@ -103,7 +104,11 @@
     padding-block: 52px;
   }
 
-  .hero-media img {
+  .hero-media {
+    justify-content: flex-start;
+  }
+
+  .hero-media > img {
     height: 320px;
     min-height: 320px;
   }

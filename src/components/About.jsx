@@ -1,4 +1,5 @@
 import './About.css'
+import ScrollFloat from './ScrollFloat';
 
 const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS']
 
@@ -7,8 +8,17 @@ function About() {
     <section className="section about-section" id="about">
       <div>
         <p className="eyebrow">About</p>
-        <h2>A Graphic Designer & Front-End Developer</h2>
       </div>
+      <ScrollFloat
+        containerClassName="about-title"
+        animationDuration={1}
+        ease='back.inOut(2)'
+        scrollStart='center bottom+=50%'
+        scrollEnd='bottom bottom-=40%'
+        stagger={0.03}
+        >
+        A Graphic Designer & Front-End Developer
+      </ScrollFloat>
       <div className="about-content">
         <p>
           I focus on creating high-impact visual design with a strong emphasis on 
