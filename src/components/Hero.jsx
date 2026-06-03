@@ -38,7 +38,7 @@ function Hero() {
           displayOverlayContent
           overlayContent={
             <p className="tilted-card-demo-text">
-            My Portfolio
+            Hover me!
             </p>
           }
         />

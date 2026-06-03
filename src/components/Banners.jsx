@@ -2,7 +2,6 @@ import ScrollStack, { ScrollStackItem } from './ScrollStack'
 import pencilCaseBanner from '../assets/Pencil Case Eva Banner-Recovered.jpg'
 import shopeeBanner from '../assets/Shopee Banner.jpg'
 import lazadaCover from '../assets/Lazada Cover.jpg'
-import { div, section } from 'motion/react-client'
 
 function Banners() {
   return (

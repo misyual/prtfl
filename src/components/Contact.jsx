@@ -5,10 +5,10 @@ function Contact() {
     <section className="section contact-section" id="contact">
       <div>
         <p className="eyebrow">Contact</p>
-        <h2>Let&apos;s build something good.</h2>
+        <h2>Let's craft something beautiful.</h2>
         <p>
-          Have a project, internship opportunity, or collaboration in mind? Send
-          a message and I&apos;ll get back to you.
+          Open for creative collaborations, UI design projects, Graphic design work, 
+          and frontend development opportunities. Drop a message and let's get to work.
         </p>
       </div>
       <div className="contact-links" aria-label="Contact links">
