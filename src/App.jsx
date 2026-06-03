@@ -5,18 +5,20 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import './App.css'
+import Banners from './components/Banners'
 
 
 function App() {
   return (
     <div className="portfolio-shell">
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
+        <main>
+            <Hero />
+            <About />
+            <Projects />
+            <Banners />
+            <Contact />
+        </main>
       <Footer />
     </div>
   )

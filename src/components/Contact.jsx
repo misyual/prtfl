@@ -12,18 +12,18 @@ function Contact() {
         </p>
       </div>
       <div className="contact-links" aria-label="Contact links">
-        <a href="mailto:hello@example.com">
-          hello@example.com
+        <a href="mailto:clivemishall@gmail.com">
+          clivemishall@gmail.com
         </a>
         <a
-          href="https://github.com/"
+          href="https://github.com/misyual"
           target="_blank"
           rel="noreferrer"
         >
           GitHub
         </a>
         <a
-          href="https://www.linkedin.com/"
+          href="https://www.linkedin.com/in/mishall-clive-b6150a324 "
           target="_blank"
           rel="noreferrer"
         >

@@ -5,15 +5,26 @@ import './Projects.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const excludedImages = new Set([
+  'funny-cats-2-20250212.webp',
+  'Pencil Case Eva Banner-Recovered.jpg',
+  'Lazada Cover.jpg',
+  'Shopee Banner.jpg',
+])
+
 const projectImages = Object.entries(
   import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,gif}', {
     eager: true,
     import: 'default',
   }),
 )
-  .filter(([path]) => !path.endsWith('funny-cats-2-20250212.webp'))
+  .filter(([path]) => !excludedImages.has(path.split('/').pop()))
   .map(([path, image]) => ({
     image,
+    title: path
+      .split('/')
+      .pop()
+      .replace(/\.[^.]+$/, ''),
   }))
 
 function Projects() {
