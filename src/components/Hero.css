@@ -113,3 +113,61 @@
     min-height: 320px;
   }
 }
+
+.hero-card-wrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 42vw, 620px);
+  --x: 50%;
+  --y: 50%;
+  --r: 300px;
+}
+
+.chroma-spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  backdrop-filter: grayscale(1) brightness(0.78);
+  -webkit-backdrop-filter: grayscale(1) brightness(0.78);
+  background: rgba(0, 0, 0, 0.001);
+  border-radius: inherit;
+
+  mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.22) 45%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.68) 88%,
+    white 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.22) 45%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.68) 88%,
+    white 100%
+  );
+
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+@media (max-width: 900px) {
+  .hero-card-wrapper {
+    height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-card-wrapper {
+    height: 320px;
+  }
+}

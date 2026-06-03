@@ -2,7 +2,7 @@ import './About.css'
 import ScrollFloat from './ScrollFloat';
 import TextType from './TextType';
 
-const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS']
+const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS', 'Figma']
 
 function About() {
   return (

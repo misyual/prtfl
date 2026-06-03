@@ -6,7 +6,7 @@ import './Projects.css'
 gsap.registerPlugin(ScrollTrigger)
 
 const excludedImages = new Set([
-  'funny-cats-2-20250212.webp',
+  'me.jpg',
   'Pencil Case Eva Banner-Recovered.jpg',
   'Lazada Cover.jpg',
   'Shopee Banner.jpg',
