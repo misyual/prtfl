@@ -9,14 +9,17 @@
   width: 100%;
 }
 
-.section,
+.portfolio-shell > main > * {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-section,
+.about-section,
 .projects-section,
 .contact-section,
-.footer,
-.navbar {
-  width: 100%;
-  box-sizing: border-box;
+footer {
+  background: #000;
 }
 
 .section,

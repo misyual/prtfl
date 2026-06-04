@@ -10,6 +10,10 @@ const excludedImages = new Set([
   'Pencil Case Eva Banner-Recovered.jpg',
   'Lazada Cover.jpg',
   'Shopee Banner.jpg',
+  'Blossom-Cover3-scaled.png',
+  'Journaling-Cover-Recovered-scaled (1).jpg',
+  'Medal-and-Certificate-Banner-scaled.jpg',
+  'photo_2025-12-18_16-34-14.jpg',
 ])
 
 const projectImages = Object.entries(
@@ -89,7 +93,7 @@ function Projects() {
             ) : (
               <div className="project-placeholder" aria-hidden="true" />
             )}
-            <figcaption>{project.title}</figcaption>
+            
           </figure>
         ))}
       </div>

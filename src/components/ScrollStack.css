@@ -19,7 +19,7 @@
 }
 
 .scroll-stack-inner {
-  padding: 24vh clamp(20px, 5vw, 80px) 55rem;
+  padding: 24vh clamp(20px, 5vw, 80px) 40rem;
   min-height: 100vh;
 }
 
