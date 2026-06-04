@@ -1,5 +1,5 @@
 .text-type {
-  display: inline-block;
+  display: block;
   white-space: pre-wrap;
   font-weight: bolder;
   font-size: 20px;

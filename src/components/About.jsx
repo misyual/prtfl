@@ -2,37 +2,36 @@ import './About.css'
 import ScrollFloat from './ScrollFloat';
 import TextType from './TextType';
 
-const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS', 'Figma']
+const skills = ['React JS', 'Photoshop', 'Illustrator', 'Figma', 'Canva', 'HTML/CSS']
 
 function About() {
   return (
     <section className="section about-section" id="about">
-      <div>
+      <div className="about-left">
         <p className="eyebrow">About</p>
-      </div>
-      <ScrollFloat
-        containerClassName="about-title"
-        animationDuration={1}
-        ease='back.inOut(2)'
-        scrollStart='center bottom+=50%'
-        scrollEnd='bottom bottom-=40%'
-        stagger={0.03}
+        <ScrollFloat
+          containerClassName="about-title"
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=50%'
+          scrollEnd='bottom bottom-=40%'
+          stagger={0.03}
         >
-        A Graphic Designer & Front-End Developer
-      </ScrollFloat>
+          A Graphic Designer & Front-End Developer
+        </ScrollFloat>
+      </div>
       <div className="about-content">
-        <TextType 
-          text={["I focus on creating high-impact visual design with a strong emphasis on clean structure, intentional details, and memorable layouts. Whether designing branding assets, landing pages, or user interfaces, I leverage my front-end development skills to seamlessly bridge the gap between creative vision and functional, accessible digital products."]}
-          typingSpeed={20}
-          pauseDuration={1500}
-          showCursor
-          cursorCharacter="_"
-          deletingSpeed={15}
-          variableSpeedEnabled={false}
-          variableSpeedMin={60}
-          variableSpeedMax={120}
-          cursorBlinkDuration={0.5}
-        />
+        <div className="about-text-container">
+          <TextType
+            text={["Hi!, I'm Mishall Clive, but you can call me Clive. I love designing by the way, I focus on creating high-impact visual designs, marketing materials, and smooth web interfaces. I treat code as an extension of my design toolkit—ensuring that the branding, typography, and layout I refine in Illustrator and Photoshop translate seamlessly into clean HTML, CSS, and modern frontend frameworks."]}
+            typingSpeed={30}
+            pauseDuration={4000}
+            showCursor
+            cursorCharacter="_"
+            deletingSpeed={10}
+            cursorBlinkDuration={0.5}
+          />
+        </div>
         <div className="skill-list" aria-label="Skills">
           {skills.map((skill) => (
             <span key={skill}>{skill}</span>
