@@ -12,13 +12,13 @@ function Banners() {
   return (
         <section className="section" id="banners">
             <div>
-                <h1 style={{ marginBottom: '20px', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' , marginTop: '20px' }}>Banners</h1>
+                <h1 style={{textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' , marginTop: '100px' }}>Shopee, Lazada and Website Banners</h1>
             </div>
             <ScrollStack
                 useWindowScroll
-                stackPosition="28%"
+                stackPosition="15%"
                 scaleEndPosition="14%"
-                itemDistance={140}
+                itemDistance={500}
             >
             <ScrollStackItem>
                 <img src={pencilCaseBanner}

@@ -2,7 +2,9 @@ import './Navbar.css'
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Graphic', href: '#projects' },
+  { label: 'Banners', href: '#banners' },
+  { label: 'UI/UX', href: '#web-designs' },
   { label: 'Contact', href: '#contact' },
 ]
 

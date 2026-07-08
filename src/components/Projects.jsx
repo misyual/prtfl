@@ -14,6 +14,8 @@ const excludedImages = new Set([
   'Journaling-Cover-Recovered-scaled (1).jpg',
   'Medal-and-Certificate-Banner-scaled.jpg',
   'photo_2025-12-18_16-34-14.jpg',
+  'design2.jpg',
+  'design1.jpg',
 ])
 
 const projectImages = Object.entries(
@@ -41,7 +43,7 @@ function Projects() {
     const section = sectionRef.current
     const track = trackRef.current
 
-    if (!section || !track) {
+    if (!section || !track || projectsWithImages.length < 4) {
       return undefined
     }
 
@@ -78,7 +80,7 @@ function Projects() {
     <section className="projects-section" id="projects" ref={sectionRef}>
       <div className="section-heading">
         <p className="eyebrow">Projects</p>
-        <h2>Graphic Designs</h2>
+        <h2>Product and Poster Designs</h2>
       </div>
       <div className="project-gallery" ref={trackRef}>
         {projectsWithImages.map((project) => (

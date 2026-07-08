@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import './App.css'
 import Banners from './components/Banners'
+import WebDesigns from './components/WebDesigns'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <About />
             <Projects />
             <Banners />
+            <WebDesigns />
             <Contact />
         </main>
       <Footer />

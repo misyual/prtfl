@@ -16,8 +16,10 @@
 .project-gallery {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: clamp(18px, 3vw, 36px);
   width: max-content;
+  min-width: 100%;
   padding-right: clamp(20px, 5vw, 72px);
   will-change: transform;
 }
