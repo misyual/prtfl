@@ -28,7 +28,7 @@ function WebDesigns() {
   return (
     <section className="section" id="web-designs">
       <div>
-        <h1 style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', marginTop: '300px' , marginBottom: '100px' }}>
+        <h1 style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', marginTop: '500px' , marginBottom: '100px' }}>
           UI/UX Designs
         </h1>
       </div>
