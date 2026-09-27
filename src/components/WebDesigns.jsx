@@ -8,16 +8,16 @@ import design2 from '../assets/design2.jpg';
 const designs = [
   {
     id: 1,
-    title: 'Project Title 1',
+    title: 'Starbright API ecommerce system',
     image: design1,
-    description: 'Short description of the problem, your role, and the outcome.',
+    description: 'Redesigned the multi-channel order management dashboard (Shopee, TikTok, Lazada) in Figma, defining a consistent UI system — amber/orange gradient table headers, icon-only action buttons, pill-style search — then implemented it in a Laravel/Inertia + React + Tailwind stack across Branches, User Management, and Orders/Waybills pages.',
     tools: ['Figma'],
   },
   {
     id: 2,
-    title: 'Project Title 2',
+    title: 'starbright.com.ph website redesign',
     image: design2,
-    description: 'Short description of the problem, your role, and the outcome.',
+    description: 'Refreshed the storefront for Starbright Office Depot\'s WooCommerce site, including a rebuilt footer with social and payment icon rows, resolving asset-hosting issues by moving icons into the WordPress Media Library for reliable serving.',
     tools: ['Figma'],
   },
 ];
