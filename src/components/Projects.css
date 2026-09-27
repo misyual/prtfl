@@ -1,26 +1,33 @@
 .projects-section {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   align-items: start;
-  gap: clamp(24px, 4vw, 56px);
+  gap: clamp(28px, 4vw, 56px);
   min-height: 100svh;
+  padding: clamp(72px, 9vw, 120px) 0 clamp(32px, 4vw, 56px);
   overflow: hidden;
-  padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 72px);
-  background: #000;
+  background: var(--bg);
 }
 
-.section-heading {
-  max-width: 920px;
+.projects-head {
+  padding: 0 var(--gutter);
+  margin-bottom: 0;
+}
+
+.projects-head__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(20px, 4vw, 56px);
 }
 
 .project-gallery {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(18px, 3vw, 36px);
+  gap: clamp(18px, 2.5vw, 34px);
   width: max-content;
   min-width: 100%;
-  padding-right: clamp(20px, 5vw, 72px);
+  padding-inline: var(--gutter);
   will-change: transform;
 }
 
@@ -29,53 +36,138 @@
   margin: 0;
 }
 
-.project-image img,
-.project-placeholder {
+.project-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition:
+    border-color 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.project-image:hover .project-frame {
+  border-color: var(--border-strong);
+  transform: translateY(-6px);
+}
+
+.project-frame img {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(88vw, 1240px);
-  max-height: min(64svh, 680px);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  max-width: min(78vw, 1100px);
+  max-height: min(58svh, 620px);
   object-fit: contain;
+  transition: transform 0.7s var(--ease-out);
+}
+
+.project-image:hover .project-frame img {
+  transform: scale(1.03);
+}
+
+.project-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgb(255 255 255 / 0.09) 50%,
+    transparent 62%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.project-image:hover .project-sheen {
+  transform: translateX(100%);
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.project-index {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.project-caption {
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .project-placeholder {
   width: min(74vw, 820px);
   height: min(70svh, 720px);
   min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background:
-    linear-gradient(135deg, transparent 48%, rgb(255 255 255 / 0.12) 49%, transparent 50%),
+    linear-gradient(135deg, transparent 48%, rgb(255 255 255 / 0.1) 49%, transparent 50%),
     var(--surface);
 }
 
-.project-image figcaption {
-  margin-top: 14px;
-  color: rgb(255 255 255 / 0.72);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
+.projects-progress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-inline: var(--gutter);
+}
+
+.projects-progress-count {
+  flex: 0 0 auto;
+  color: var(--text-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-@media (max-width: 980px) {
-  .projects-section {
-    grid-template-columns: none;
+.projects-progress-track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 1px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.projects-progress-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@media (max-width: 900px) {
+  .projects-head__row {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
-  .project-image img,
-  .project-placeholder {
-    max-width: 88vw;
-    max-height: 62svh;
+  .project-frame img {
+    max-width: 80vw;
+    max-height: 54svh;
   }
 }
 
 @media (max-width: 560px) {
-  .project-image img,
-  .project-placeholder {
-    max-width: 86vw;
-    max-height: 58svh;
+  .project-frame img {
+    max-width: 78vw;
+    max-height: 48svh;
   }
 }

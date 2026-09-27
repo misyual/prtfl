@@ -3,7 +3,13 @@ import heroImg from '../assets/me.jpg'
 import './Hero.css'
 import BlurText from './BlurText'
 import TiltedCard from './TiltedCard'
+import Marquee from './Marquee'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+const services = ['Products Cover Design', 'Video Editing', 'UI Design', 'Front-End', 'Motion', 'Packaging']
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Hero() {
   const wrapperRef = useRef(null)
@@ -23,7 +29,7 @@ function Hero() {
       onUpdate: () => {
         wrapperRef.current?.style.setProperty('--x', `${pos.current.x}px`)
         wrapperRef.current?.style.setProperty('--y', `${pos.current.y}px`)
-      }
+      },
     })
     gsap.to(overlayRef.current, { opacity: 0, duration: 0.25, overwrite: true })
   }
@@ -34,47 +40,81 @@ function Hero() {
 
   return (
     <section className="hero-section" id="top">
-      <div className="hero-copy">
-        <BlurText
-          as="h1"
-          text="Designing sharp visuals and building smooth web experiences."
-          delay={120}
-          direction="bottom"
-        />
-        <BlurText
-          className="hero-text"
-          text="Passionate about graphic design and front-end development, I create visually appealing designs and user-friendly web experiences with attention to detail."
-          delay={40}
-          direction="bottom"
-        />
-        <div className="hero-highlights" aria-label="Creative services"></div>
-      </div>
-      <div className="hero-media" aria-label="Portfolio profile artwork">
-        <div
-          className="hero-card-wrapper"
-          ref={wrapperRef}
-          onPointerMove={handleMove}
-          onPointerLeave={handleLeave}
-        >
-          <TiltedCard
-            imageSrc={heroImg}
-            altText="My Portfolio"
-            captionText="Mishall Clive B."
-            containerHeight="clamp(360px, 42vw, 620px)"
-            containerWidth="100%"
-            imageHeight="clamp(360px, 42vw, 620px)"
-            imageWidth="min(100%, clamp(360px, 42vw, 620px))"
-            rotateAmplitude={12}
-            scaleOnHover={1.05}
-            showMobileWarning={false}
-            showTooltip
-            displayOverlayContent
-            overlayContent={
-              <p className="tilted-card-demo-text">Hover me!</p>
-            }
+      <div className="hero-aurora" aria-hidden="true" />
+      <div className="hero-grid" aria-hidden="true" />
+
+      <div className="hero-main">
+        <div className="hero-copy">
+          <p className="eyebrow">Available for freelance</p>
+
+          <BlurText
+            as="h1"
+            text="Designing sharp visuals and building smooth web experiences."
+            delay={90}
+            direction="bottom"
           />
-          <div ref={overlayRef} className="chroma-spotlight-overlay" />
+
+          <BlurText
+            className="hero-text"
+            text="Passionate about graphic design and front-end development, I create visually appealing designs and user-friendly web experiences with attention to detail."
+            delay={28}
+            direction="bottom"
+          />
+
+          <div className="hero-highlights" aria-label="Creative services">
+            {services.map((service) => (
+              <span className="tag" key={service}>
+                {service}
+              </span>
+            ))}
+          </div>
+
+          <div className="hero-actions">
+            <a className="button primary" href="#projects">
+              View selected work
+            </a>
+            <a className="button ghost" href="#contact">
+              Start a project
+            </a>
+          </div>
         </div>
+
+        <div className="hero-media" aria-label="Portfolio profile artwork">
+          <div
+            className="hero-card-wrapper"
+            ref={wrapperRef}
+            onPointerMove={handleMove}
+            onPointerLeave={handleLeave}
+          >
+            <TiltedCard
+              imageSrc={heroImg}
+              altText="My Portfolio"
+              captionText="Mishall Clive B."
+              containerHeight="clamp(360px, 42vw, 620px)"
+              containerWidth="100%"
+              imageHeight="clamp(360px, 42vw, 620px)"
+              imageWidth="min(100%, clamp(360px, 42vw, 620px))"
+              rotateAmplitude={12}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip
+              displayOverlayContent
+              overlayContent={<p className="tilted-card-demo-text">Hover me!</p>}
+            />
+            <div ref={overlayRef} className="chroma-spotlight-overlay" />
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-marquee">
+        <Marquee items={services} speed={15} />
+      </div>
+
+      <div className="hero-foot">
+        <a className="hero-scroll" href="#about" aria-label="Scroll to about section">
+          <span className="hero-scroll-line" aria-hidden="true" />
+          <span className="hero-scroll-text">Scroll to explore</span>
+        </a>
       </div>
     </section>
   )

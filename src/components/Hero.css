@@ -1,117 +1,136 @@
 .hero-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr auto auto;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
+.hero-aurora {
+  position: absolute;
+  /* No right bleed: .hero-section does not clip, so a negative right inset
+     pushed the document 10% wider than the viewport on narrow screens. */
+  inset: -20% 0 auto -10%;
+  z-index: -2;
+  height: 80%;
+  pointer-events: none;
+  background:
+    radial-gradient(48% 42% at 18% 22%, rgb(212 255 79 / 0.12), transparent 70%),
+    radial-gradient(42% 38% at 78% 8%, rgb(120 160 255 / 0.1), transparent 72%);
+  filter: blur(10px);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 78%);
+}
+
+.hero-main {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-  align-items: end;
+  align-items: center;
   gap: clamp(32px, 6vw, 96px);
-  min-height: calc(100svh - 76px);
-  padding: clamp(64px, 9vw, 128px) clamp(20px, 5vw, 72px);
-  background: #000;
+  padding: calc(var(--nav-h) + clamp(36px, 5vw, 72px)) var(--gutter) clamp(28px, 4vw, 56px);
 }
 
 .hero-copy {
   display: grid;
-  align-content: end;
-  gap: 28px;
+  align-content: center;
+  justify-items: start;
+  gap: 22px;
   min-width: 0;
 }
 
 .hero-text {
-  max-width: 700px;
+  max-width: 58ch;
   color: var(--text);
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.55;
+  font-size: clamp(1.02rem, 1.45vw, 1.25rem);
+  line-height: 1.6;
 }
 
 .hero-highlights {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.hero-highlights span,
-.button {
-  border: 1px solid var(--border);
-  color: #fff;
-  background: transparent;
-}
-
-.hero-highlights span {
-  padding: 8px 12px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  gap: 8px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 8px;
 }
 
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 18px;
-  font-weight: 700;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-h);
+  background: transparent;
+  font-family: var(--display);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
 }
 
-.button.primary {
-  background: #fff;
-  color: #000;
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--accent);
+  transform: translateY(101%);
+  transition: transform 0.5s var(--ease-out);
 }
 
 .button:hover,
 .button:focus-visible {
-  background: #fff;
   color: #000;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  transform: translateY(0);
+}
+
+.button.primary {
+  color: #000;
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.button.primary::before {
+  background: #fff;
 }
 
 .hero-media {
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
-  background: transparent;
-}
-
-.hero-media > img {
-  display: block;
   width: 100%;
-  height: min(58vw, 620px);
-  min-height: 360px;
-  object-fit: cover;
-  filter: grayscale(1);
-}
-
-@media (max-width: 900px) {
-  .hero-section {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-media > img {
-    height: 420px;
-  }
-}
-
-@media (max-width: 560px) {
-  .hero-section {
-    padding-block: 52px;
-  }
-
-  .hero-media {
-    justify-content: flex-start;
-  }
-
-  .hero-media > img {
-    height: 320px;
-    min-height: 320px;
-  }
 }
 
 .hero-card-wrapper {
@@ -126,13 +145,12 @@
 .chroma-spotlight-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   z-index: 10;
-  backdrop-filter: grayscale(1) brightness(0.78);
-  -webkit-backdrop-filter: grayscale(1) brightness(0.78);
-  background: rgba(0, 0, 0, 0.001);
+  pointer-events: none;
   border-radius: inherit;
-
+  background: rgba(0, 0, 0, 0.001);
+  backdrop-filter: grayscale(1) brightness(0.8);
+  -webkit-backdrop-filter: grayscale(1) brightness(0.8);
   mask-image: radial-gradient(
     circle var(--r) at var(--x) var(--y),
     transparent 0%,
@@ -155,12 +173,83 @@
     rgba(0, 0, 0, 0.68) 88%,
     white 100%
   );
-
   opacity: 1;
   transition: opacity 0.25s ease;
 }
 
-@media (max-width: 900px) {
+.hero-marquee {
+  padding-block: 14px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgb(5 5 5 / 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-foot {
+  display: flex;
+  align-items: center;
+  padding: clamp(18px, 2.4vw, 26px) var(--gutter) clamp(22px, 3vw, 34px);
+}
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-soft);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: color 0.3s var(--ease-out);
+}
+
+.hero-scroll:hover {
+  color: var(--accent);
+}
+
+.hero-scroll-line {
+  position: relative;
+  width: 56px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--border-strong);
+}
+
+.hero-scroll-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  animation: scroll-sweep 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes scroll-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-foot {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
   .hero-card-wrapper {
     height: 420px;
   }

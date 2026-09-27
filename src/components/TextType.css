@@ -1,13 +1,25 @@
+.text-type-root {
+  display: block;
+}
+
 .text-type {
   display: block;
+  max-width: 66ch;
+  color: var(--text);
+  font-size: clamp(1.02rem, 1.45vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
   white-space: pre-wrap;
-  font-weight: bolder;
-  font-size: 20px;
+}
+
+.text-type__content {
+  color: var(--text);
 }
 
 .text-type__cursor {
-  margin-left: 0.25rem;
   display: inline-block;
+  margin-left: 0.15em;
+  color: var(--accent);
   opacity: 1;
 }
 

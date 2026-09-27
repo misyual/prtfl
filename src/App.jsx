@@ -4,25 +4,28 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
-import './App.css'
 import Banners from './components/Banners'
 import WebDesigns from './components/WebDesigns'
-
+import SmoothScroll from './components/SmoothScroll'
+import './App.css'
 
 function App() {
   return (
-    <div className="portfolio-shell">
-      <Navbar />
+    <SmoothScroll>
+      <div className="portfolio-shell">
+        <Navbar />
         <main>
-            <Hero />
-            <About />
-            <Projects />
-            <Banners />
-            <WebDesigns />
-            <Contact />
+          <Hero />
+          <About />
+          <Projects />
+          <Banners />
+          <WebDesigns />
+          <Contact />
         </main>
-      <Footer />
-    </div>
+        <Footer />
+        <div className="grain" aria-hidden="true" />
+      </div>
+    </SmoothScroll>
   )
 }
 

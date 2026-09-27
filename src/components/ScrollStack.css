@@ -2,14 +2,8 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: visible;
+  overflow: hidden;
   overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: scroll-position;
 }
 
 .scroll-stack-window {
@@ -19,32 +13,36 @@
 }
 
 .scroll-stack-inner {
-  padding: 24vh clamp(20px, 5vw, 80px) 40rem;
   min-height: 100vh;
-}
-
-.scroll-stack-card-wrapper {
-  position: relative;
+  padding: 12vh var(--gutter) 30vh;
 }
 
 .scroll-stack-card {
+  position: relative;
+  width: min(100%, 1740px);
+  height: auto;
+  margin: 30px auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: clamp(18px, 2.2vw, 32px);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--bg-elev);
   transform-origin: top center;
   will-change: transform, filter;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  height: auto;
-  width: min(100%, 1740px);
-  margin: 30px 0;
-  margin-inline: auto;
-  padding: 0;
-  border-radius: clamp(18px, 2.2vw, 40px);
-  box-sizing: border-box;
-  overflow: hidden;
-  /* Improve mobile performance */
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  position: relative;
+}
+
+.scroll-stack-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 74svh;
+  object-fit: cover;
 }
 
 .scroll-stack-end {
@@ -54,7 +52,10 @@
 
 @media (max-width: 700px) {
   .scroll-stack-inner {
-    padding-block-start: 18vh;
-    padding-inline: 16px;
+    padding-top: 8vh;
+  }
+
+  .scroll-stack-card img {
+    max-height: 60svh;
   }
 }

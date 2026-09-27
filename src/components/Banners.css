@@ -1,0 +1,32 @@
+.banners-section {
+  padding-bottom: clamp(40px, 6vw, 80px);
+  background: var(--bg);
+}
+
+.banners-head {
+  padding: clamp(72px, 9vw, 120px) var(--gutter) 0;
+  margin-bottom: 0;
+}
+
+.banners-head__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(20px, 4vw, 56px);
+}
+
+.banners-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .banners-head__row {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}

@@ -1,60 +1,178 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
+  left: 0;
+  z-index: 60;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition:
+    background 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    backdrop-filter 0.4s var(--ease-out);
+}
+
+.navbar.is-scrolled {
+  border-bottom-color: var(--border);
+  background: rgb(5 5 5 / 0.72);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.navbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
-  min-height: 76px;
-  padding: 0 clamp(20px, 5vw, 72px);
-  border-bottom: 1px solid var(--border);
-  background: rgb(0 0 0 / 0.92);
+  gap: clamp(16px, 3vw, 40px);
+  min-height: var(--nav-h);
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
 .navbar-logo {
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.navbar-logo-mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.navbar-logo:hover .navbar-logo-mark {
+  transform: rotate(45deg) scale(1.15);
+}
+
+.navbar-logo-text {
+  color: var(--text-h);
+  font-family: var(--display);
   font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 3vw, 34px);
+  gap: clamp(10px, 2vw, 28px);
 }
 
 .nav-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  color: rgb(255 255 255 / 0.68);
-  text-decoration: none;
+  min-height: 40px;
+  padding: 0 2px;
+  color: var(--text-soft);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.3s var(--ease-out);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
 }
 
 .nav-item:hover,
-.nav-item:focus-visible {
-  color: #fff;
+.nav-item.is-active {
+  color: var(--text-h);
 }
 
-.nav-label {
-  font-size: 14px;
-  font-weight: 600;
+.nav-item:hover::after,
+.nav-item.is-active::after {
+  transform: scaleX(1);
 }
 
-@media (max-width: 640px) {
-  .navbar {
-    align-items: flex-start;
+.navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-h);
+  font-family: var(--display);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    color 0.35s var(--ease-out),
+    background 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
+}
+
+.navbar-cta:hover {
+  color: #000;
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.navbar-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+}
+
+.navbar-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), rgb(212 255 79 / 0.35));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@media (max-width: 900px) {
+  .navbar-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar-inner {
     flex-direction: column;
-    gap: 10px;
-    padding-block: 18px;
+    align-items: stretch;
+    gap: 8px;
+    padding-block: 12px 10px;
   }
 
   .navbar-links {
-    width: 100%;
     justify-content: space-between;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navbar-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-item {
+    font-size: 13px;
   }
 }
