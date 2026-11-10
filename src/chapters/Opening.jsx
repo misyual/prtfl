@@ -11,7 +11,11 @@ export default function Opening() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-cream text-ink"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true">
+      {/* 3D object pushed to the right so the text stays clear */}
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[60%] opacity-60"
+        aria-hidden="true"
+      >
         <Object3D />
       </div>
 
@@ -19,7 +23,10 @@ export default function Opening() {
         <p className="font-mono text-xs uppercase tracking-[0.24em] text-ink/75">
           Portfolio / 2026
         </p>
-        <h1 className="mt-4 font-display text-[clamp(3rem,9vw,8rem)] leading-[0.9] tracking-tight">
+        <h1
+          className="mt-4 font-display text-[clamp(3rem,9vw,8rem)] leading-[0.9] tracking-tight"
+          style={{ color: '#1f1d1d' }}
+        >
           Mishall Clive
         </h1>
         <p className="mt-4 max-w-xl text-lg md:text-2xl font-sans text-ink/80">
@@ -31,7 +38,7 @@ export default function Opening() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#projects" className="btn btn-solid">View work</a>
-          <a href="#contact" className="btn">Get in touch</a>
+          <a href="#contact" className="btn btn-solid">Get in touch</a>
         </div>
       </div>
     </section>

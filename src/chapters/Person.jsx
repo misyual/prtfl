@@ -40,7 +40,7 @@ export default function Person() {
           <aside className="self-start lg:sticky lg:top-28">
             <div className="relative overflow-hidden rounded-[6px] border border-line">
               <img
-                src="/me.webp"
+                src="/Me.webp"
                 alt="Mishall Clive working portrait"
                 className="aspect-[4/5] w-full object-cover saturate-[0.85]"
                 width="800"
@@ -57,36 +57,6 @@ export default function Person() {
             <div className="mt-4 flex items-center justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.16em] text-cream/56">
               <span>{profile.location}</span>
               <span className="text-right">{profile.role}</span>
-            </div>
-
-            <div className="mt-10">
-              <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-cream/56">
-                Software
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {profile.skills.map((skill) => (
-                  <li className="chip" key={skill}>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-7">
-              <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-cream/56">
-                AI toolkit
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {profile.aiTools.map((tool) => {
-                  const Icon = aiIcons[tool]
-                  return (
-                    <li className="chip" key={tool}>
-                      {Icon ? <Icon className="h-3.5 w-3.5 opacity-70" aria-hidden="true" /> : null}
-                      {tool}
-                    </li>
-                  )
-                })}
-              </ul>
             </div>
           </aside>
 
