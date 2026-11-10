@@ -57,17 +57,18 @@ export const posters = [
   { id: 'w10', title: 'Fiksu FS-062', category: 'Campaign', src: fiksu },
   { id: 'w11', title: 'Pattern Study 02', category: 'Pattern', src: pattern },
   { id: 'w12', title: 'Yarn & Nature', category: 'Editorial', src: yarnNature },
+  { id: 'w13', title: 'Kulai', category: 'Packaging', src: kulai },
+  { id: 'w14', title: 'Study 56163', category: 'Poster', src: study56163 },
+  { id: 'w15', title: 'Certificate', category: 'Print', src: cert2 },
+  { id: 'w16', title: 'Inspirational II', category: 'Poster', src: inspirational },
+  { id: 'w17', title: 'Medals', category: 'Print', src: medals },
+  { id: 'w18', title: 'Pastel Series', category: 'Pattern', src: pastel },
+  { id: 'w19', title: 'Yarn Inspirational III', category: 'Editorial', src: yarnInspo },
 ]
 
-export const archive = [
-  { id: 'a01', title: 'Kulai', category: 'Packaging', src: kulai },
-  { id: 'a02', title: 'Study 56163', category: 'Poster', src: study56163 },
-  { id: 'a03', title: 'Certificate', category: 'Print', src: cert2 },
-  { id: 'a04', title: 'Inspirational II', category: 'Poster', src: inspirational },
-  { id: 'a05', title: 'Medals', category: 'Print', src: medals },
-  { id: 'a06', title: 'Pastel Series', category: 'Pattern', src: pastel },
-  { id: 'a07', title: 'Yarn Inspirational III', category: 'Editorial', src: yarnInspo },
-]
+// Extra pieces that are not part of Selected work. The archive overlay shows
+// [...posters, ...archive], so anything moved into `posters` must leave this list.
+export const archive = []
 
 export const banners = [
   {

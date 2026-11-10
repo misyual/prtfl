@@ -129,11 +129,6 @@ function CaseStudy({ study, index, onOpen }) {
               </span>
             ))}
           </div>
-
-          <button type="button" className="btn mt-8" onClick={() => onOpen(study.id)}>
-            View full case study
-            <span aria-hidden="true">→</span>
-          </button>
         </div>
       </div>
     </article>

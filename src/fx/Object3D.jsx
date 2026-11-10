@@ -8,9 +8,10 @@ const SHAPE = 'knot'
 const PALETTE = [0xf0e9dc, 0xd9a85b, 0x9cc4ff, 0xff9fd2]
 
 const SHAPES = {
-  knot: (THREE) => new THREE.TorusKnotGeometry(0.95, 0.3, 220, 48, 2, 3),
-  torus: (THREE) => new THREE.TorusGeometry(1, 0.42, 64, 160),
-  pill: (THREE) => new THREE.CapsuleGeometry(0.7, 1.3, 32, 64),
+  knot: (THREE, compact) =>
+    new THREE.TorusKnotGeometry(0.95, 0.3, compact ? 150 : 220, compact ? 34 : 48, 2, 3),
+  torus: (THREE, compact) => new THREE.TorusGeometry(1, 0.42, compact ? 40 : 64, compact ? 96 : 160),
+  pill: (THREE, compact) => new THREE.CapsuleGeometry(0.7, 1.3, compact ? 20 : 32, compact ? 40 : 64),
   cube: (THREE) => {
     const g = new THREE.BoxGeometry(1.7, 1.7, 1.7, 40, 40, 40)
     const p = g.attributes.position
@@ -31,25 +32,18 @@ export default function Object3D() {
   const [ready, setReady] = useState(false)
   const reduced = useReducedMotion()
 
-  const [wide, setWide] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches,
-  )
-
-  useEffect(() => {
-    const query = window.matchMedia('(min-width: 768px)')
-    const onChange = () => setWide(query.matches)
-    query.addEventListener('change', onChange)
-    return () => query.removeEventListener('change', onChange)
-  }, [])
-
   useEffect(() => {
     const mount = mountRef.current
-    if (!mount || reduced || !wide) return undefined
+    if (!mount || reduced) return undefined
+
+    // Phones get a lighter build of the same object so it still shows up
+    // without tanking the frame rate or the initial payload.
+    const compact = window.matchMedia('(max-width: 767px)').matches
 
     let disposed = false
     let renderer, scene, camera, group, mesh, particles, frame, envTexture, pmrem
 
-    const start = async () => {
+    const boot = async () => {
       const THREE = await import('three')
       const { RoomEnvironment } = await import('three/examples/jsm/environments/RoomEnvironment.js')
       const { mergeVertices } = await import('three/examples/jsm/utils/BufferGeometryUtils.js')
@@ -59,8 +53,8 @@ export default function Object3D() {
       camera = new THREE.PerspectiveCamera(45, mount.clientWidth / mount.clientHeight, 0.1, 100)
       camera.position.z = 5
 
-      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5))
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !compact })
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, compact ? 1.25 : 1.5))
       renderer.setSize(mount.clientWidth, mount.clientHeight)
       renderer.toneMapping = THREE.ACESFilmicToneMapping
       renderer.toneMappingExposure = 1.15
@@ -75,7 +69,7 @@ export default function Object3D() {
       scene.add(group)
 
       // Build the chosen shape, merge vertices so normals stay smooth
-      let geometry = (SHAPES[SHAPE] || SHAPES.knot)(THREE)
+      let geometry = (SHAPES[SHAPE] || SHAPES.knot)(THREE, compact)
       geometry.deleteAttribute('uv')
       geometry.deleteAttribute('normal')
       geometry = mergeVertices(geometry)
@@ -126,7 +120,7 @@ export default function Object3D() {
       scene.add(lightC)
 
       // Particle halo
-      const PCOUNT = 450
+      const PCOUNT = compact ? 180 : 450
       const pPos = new Float32Array(PCOUNT * 3)
       for (let i = 0; i < PCOUNT; i++) {
         const r = 2.3 + Math.random() * 1.6
@@ -347,6 +341,15 @@ export default function Object3D() {
       }
     }
 
+    const start = async () => {
+      try {
+        await boot()
+      } catch {
+        // WebGL can be unavailable (old devices, blocked contexts). The hero
+        // still reads fine without the object, so fail silently.
+      }
+    }
+
     start()
 
     return () => {
@@ -370,11 +373,15 @@ export default function Object3D() {
         }
       }
     }
-  }, [reduced, wide])
+  }, [reduced])
 
   return (
     <div ref={mountRef} className="relative h-full w-full">
-      {!ready && !reduced ? <div className="absolute inset-0 grid place-items-center text-cream/40 text-xs">Loading…</div> : null}
+      {!ready && !reduced ? (
+        <div className="absolute inset-0 grid place-items-center font-mono text-[9px] uppercase tracking-[0.2em] text-ink/35">
+          Loading
+        </div>
+      ) : null}
     </div>
   )
 }

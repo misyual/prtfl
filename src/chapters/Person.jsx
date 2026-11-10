@@ -1,16 +1,7 @@
-import { SiClaude, SiGooglegemini, SiOpencode } from 'react-icons/si'
-import { RiOpenaiFill } from 'react-icons/ri'
 import { profile } from '../data/profile'
 import CountUp from '../fx/CountUp'
 import SplitReveal from '../fx/SplitReveal'
 import WordReveal from '../fx/WordReveal'
-
-const aiIcons = {
-  Claude: SiClaude,
-  opencode: SiOpencode,
-  ChatGPT: RiOpenaiFill,
-  Gemini: SiGooglegemini,
-}
 
 export default function Person() {
   return (
@@ -40,7 +31,7 @@ export default function Person() {
           <aside className="self-start lg:sticky lg:top-28">
             <div className="relative overflow-hidden rounded-[6px] border border-line">
               <img
-                src="/Me.webp"
+                src="/me.webp"
                 alt="Mishall Clive working portrait"
                 className="aspect-[4/5] w-full object-cover saturate-[0.85]"
                 width="800"

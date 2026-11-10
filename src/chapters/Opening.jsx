@@ -9,17 +9,9 @@ export default function Opening() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-cream text-ink"
+      className="hero relative flex min-h-svh flex-col justify-center overflow-hidden bg-cream text-ink"
     >
-      {/* 3D object pushed to the right so the text stays clear */}
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[60%] opacity-60"
-        aria-hidden="true"
-      >
-        <Object3D />
-      </div>
-
-      <div className="shell gutter relative z-10 w-full py-20">
+      <div className="shell gutter relative z-10 w-full pb-2 pt-[calc(var(--nav-h,72px)+clamp(18px,5vw,40px))] md:py-20">
         <p className="font-mono text-xs uppercase tracking-[0.24em] text-ink/75">
           Portfolio / 2026
         </p>
@@ -40,6 +32,15 @@ export default function Opening() {
           <a href="#projects" className="btn btn-solid">View work</a>
           <a href="#contact" className="btn btn-solid">Get in touch</a>
         </div>
+      </div>
+
+      {/* Desktop: object sits to the right of the copy. Mobile: it gets its
+          own band below the copy so it is never hidden behind the text. */}
+      <div
+        className="relative z-0 h-[36svh] min-h-[210px] w-full md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[60%] md:opacity-60"
+        aria-hidden="true"
+      >
+        <Object3D />
       </div>
     </section>
   )

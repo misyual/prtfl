@@ -430,6 +430,23 @@ html.lenis body {
   font-size: 12.5px;
 }
 
+/* The opening section is cream-on-cream, so its buttons invert to ink. */
+.hero .btn-solid {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.hero .btn-solid::before {
+  background: var(--color-cream-strong);
+}
+
+.hero .btn-solid:hover,
+.hero .btn-solid:focus-visible {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
 /* ----------------------------------------------------------------- Chips */
 .chip {
   display: inline-flex;
@@ -1115,6 +1132,29 @@ html.lenis body {
   }
 }
 
+/* Mobile campaigns: plain full-width cards instead of the pinned stack. */
+.banner-list {
+  display: grid;
+  gap: clamp(18px, 4vw, 26px);
+  padding-bottom: clamp(56px, 12vw, 96px);
+}
+
+.banner-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  background: var(--color-ink-elev);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.4);
+}
+
+.banner-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
 /* ----------------------------------------------------------------- Cases */
 .case-block {
   position: relative;
@@ -1425,6 +1465,54 @@ html.lenis body {
   position: relative;
   z-index: 2;
   border-top: 1px solid var(--color-line);
+}
+
+/* ----------------------------------------------------- Mobile refinements */
+@media (max-width: 640px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cell {
+    padding-inline: 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .stat-cell:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .stat-cell:last-child {
+    padding-bottom: 0;
+  }
+
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 14px;
+  }
+
+  .case-thumb {
+    width: 60px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .filmstrip__card {
+    width: min(78vw, 340px);
+  }
+
+  .filmstrip__track {
+    scroll-padding-inline: var(--gutter-x, 20px);
+  }
+}
+
+.hero canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* --------------------------------------------------------- Reduced motion */

@@ -1,9 +1,44 @@
 import ScrollStack, { ScrollStackItem } from '../components/ScrollStack'
 import { banners } from '../data/work'
+import { useMediaQuery } from '../lib/motion'
 
 const platforms = ['Shopee', 'Lazada', 'Website Banners', 'Storefront Covers']
 
+function BannerCard({ banner, index }) {
+  return (
+    <div className="relative">
+      <img
+        src={banner.src}
+        alt={banner.alt}
+        width={banner.width}
+        height={banner.height}
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent p-5 sm:p-7">
+        <div>
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
+            {banner.platform}
+          </p>
+          <h3 className="mt-1 font-sans text-lg font-semibold tracking-tight text-cream sm:text-xl">
+            {banner.title}
+          </h3>
+        </div>
+        <span className="font-mono text-[10px] tracking-[0.16em] text-cream/56">
+          {String(index + 1).padStart(2, '0')} / {String(banners.length).padStart(2, '0')}
+        </span>
+      </div>
+    </div>
+  )
+}
+
 export default function Campaigns() {
+  // The pinned stack needs tall viewports to breathe. On phones it left the
+  // banners tiny and hundreds of pixels apart, so mobile gets a plain,
+  // full-width list instead.
+  const isMobile = useMediaQuery('(max-width: 767px)')
+
   return (
     <section
       id="banners"
@@ -33,44 +68,31 @@ export default function Campaigns() {
         </header>
       </div>
 
-      <ScrollStack
-        useWindowScroll
-        stackPosition="14%"
-        scaleEndPosition="13%"
-        itemDistance={430}
-        baseScale={0.9}
-        itemScale={0.012}
-        blurAmount={0.6}
-      >
-        {banners.map((banner, index) => (
-          <ScrollStackItem key={banner.id}>
-            <div className="relative">
-              <img
-                src={banner.src}
-                alt={banner.alt}
-                width={banner.width}
-                height={banner.height}
-                loading="lazy"
-                decoding="async"
-              />
-
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent p-5 sm:p-7">
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
-                    {banner.platform}
-                  </p>
-                  <h3 className="mt-1 font-sans text-lg font-semibold tracking-tight text-cream sm:text-xl">
-                    {banner.title}
-                  </h3>
-                </div>
-                <span className="font-mono text-[10px] tracking-[0.16em] text-cream/56">
-                  {String(index + 1).padStart(2, '0')} / {String(banners.length).padStart(2, '0')}
-                </span>
-              </div>
+      {isMobile ? (
+        <div className="shell gutter banner-list mt-8">
+          {banners.map((banner, index) => (
+            <div className="banner-card" key={banner.id}>
+              <BannerCard banner={banner} index={index} />
             </div>
-          </ScrollStackItem>
-        ))}
-      </ScrollStack>
+          ))}
+        </div>
+      ) : (
+        <ScrollStack
+          useWindowScroll
+          stackPosition="14%"
+          scaleEndPosition="13%"
+          itemDistance={430}
+          baseScale={0.9}
+          itemScale={0.012}
+          blurAmount={0.6}
+        >
+          {banners.map((banner, index) => (
+            <ScrollStackItem key={banner.id}>
+              <BannerCard banner={banner} index={index} />
+            </ScrollStackItem>
+          ))}
+        </ScrollStack>
+      )}
     </section>
   )
 }

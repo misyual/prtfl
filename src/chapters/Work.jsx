@@ -122,7 +122,7 @@ export default function Work() {
             <button
               type="button"
               onClick={() => setArchiveOpen(true)}
-              className="group mt-3 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/58 transition-colors hover:text-accent"
+              className="group mt-3 inline-flex items-center gap-2 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/58 transition-colors hover:text-accent"
             >
               View archive — {archiveItems.length} pieces
               <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
