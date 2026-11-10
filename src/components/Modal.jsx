@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { motion } from 'motion/react'
 import { getLenis } from '../lib/lenis'
-import './Modal.css'
 
 const FOCUSABLE = [
   'a[href]',
