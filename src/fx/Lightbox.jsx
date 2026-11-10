@@ -34,7 +34,7 @@ export default function Lightbox({ open, items, index, onIndex, onClose }) {
               </p>
               <h2
                 id="lightbox-title"
-                className="mt-1 font-display text-lg font-medium tracking-tight text-cream"
+                className="mt-1 font-sans text-lg font-semibold tracking-tight text-cream"
               >
                 {item.title}
               </h2>

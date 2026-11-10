@@ -81,7 +81,7 @@ export default function Process() {
               stagger={0.05}
               parts={[
                 { text: 'How the work' },
-                { text: 'actually', className: 'serif-em text-lime' },
+                { text: 'actually', className: 'serif-em text-accent' },
                 { text: 'gets made.' },
               ]}
             />
@@ -108,7 +108,7 @@ export default function Process() {
               >
                 <span className="process-step__dot" aria-hidden="true" />
                 <p className="chapter-num">{step.num}</p>
-                <h3 className="mt-3 font-display text-[clamp(1.4rem,2vw,1.8rem)] font-medium tracking-tight text-cream">
+                <h3 className="mt-3 font-sans text-[clamp(1.4rem,2vw,1.8rem)] font-semibold tracking-tight text-cream">
                   {step.title}
                 </h3>
                 <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/60">{step.copy}</p>
@@ -128,7 +128,7 @@ export default function Process() {
                   key={service}
                   className="flex items-baseline justify-between gap-4 border-b border-line py-3.5"
                 >
-                  <span className="font-display text-[clamp(1rem,1.5vw,1.25rem)] font-medium tracking-tight text-cream/85">
+                  <span className="font-sans text-[clamp(1rem,1.5vw,1.25rem)] font-medium tracking-tight text-cream/85">
                     {service}
                   </span>
                   <span className="chapter-num shrink-0">{String(index + 1).padStart(2, '0')}</span>

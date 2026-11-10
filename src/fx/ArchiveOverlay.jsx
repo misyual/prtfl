@@ -6,7 +6,7 @@ export default function ArchiveOverlay({ open, items, onClose }) {
       <div className="border-b border-line px-6 py-5 sm:px-8">
         <p className="chapter-label">Archive</p>
         <h2 id="archive-title" className="mt-3 display-md">
-          Every piece, <span className="serif-em text-lime">unfiltered.</span>
+          Every piece, <span className="serif-em text-accent">unfiltered.</span>
         </h2>
         <p className="mt-2 max-w-lg text-sm text-cream/60">
           The full set of graphic and product work — including pieces outside the main story.

@@ -114,7 +114,7 @@ function CaseStudy({ study, index, onOpen }) {
                 data-index={detailIndex}
                 className="case-detail"
               >
-                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-lime">
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
                   {key}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-cream/55">{study[key]}</p>
@@ -213,7 +213,7 @@ function CaseModal({ study, onClose }) {
           <div className="mt-6 grid gap-5">
             {DETAILS.map((key) => (
               <div key={key}>
-                <h3 className="font-mono text-[9px] uppercase tracking-[0.2em] text-lime">
+                <h3 className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
                   {key}
                 </h3>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-cream/55">{study[key]}</p>
@@ -261,7 +261,7 @@ export default function Interfaces() {
               className="display-md mt-4 max-w-[18ch]"
               parts={[
                 { text: 'Interfaces built like' },
-                { text: 'systems.', className: 'serif-em text-lime' },
+                { text: 'systems.', className: 'serif-em text-accent' },
               ]}
             />
           </div>

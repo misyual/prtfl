@@ -202,8 +202,8 @@ export default function Opening({ introDone }) {
         <div ref={footRef} className="opening__foot">
           <div className="flex items-center gap-3">
             <span className="relative flex h-2 w-2" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime/60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/58">
               {profile.availability}
@@ -229,7 +229,7 @@ export default function Opening({ introDone }) {
                 href={social.href}
                 target={social.href.startsWith('mailto:') ? undefined : '_blank'}
                 rel={social.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-                className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/56 transition-colors hover:text-lime"
+                className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/56 transition-colors hover:text-accent"
               >
                 {social.label}
               </a>

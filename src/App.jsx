@@ -76,7 +76,7 @@ function App() {
       <div className="portfolio-shell">
         <a
           href="#main"
-          className="sr-only z-[300] rounded-full bg-lime px-5 py-3 font-display text-sm font-medium text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          className="sr-only z-[300] rounded-full bg-accent px-5 py-3 font-sans text-sm font-medium text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
           Skip to content
         </a>

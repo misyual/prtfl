@@ -59,7 +59,7 @@ export default function Contact() {
           stagger={0.07}
           parts={[
             { text: 'The next chapter is' },
-            { text: 'yours.', className: 'serif-em text-lime' },
+            { text: 'yours.', className: 'serif-em text-accent' },
           ]}
         />
 
@@ -97,12 +97,12 @@ export default function Contact() {
                 <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-cream/56">
                   {social.label}
                 </span>
-                <span className="mt-1.5 block font-display text-base font-medium tracking-tight text-cream/80 transition-colors group-hover:text-lime">
+                <span className="mt-1.5 block font-sans text-base font-medium tracking-tight text-cream/80 transition-colors group-hover:text-accent">
                   {social.value}
                 </span>
               </span>
               <span
-                className="text-cream/52 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-lime"
+                className="text-cream/52 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
                 aria-hidden="true"
               >
                 ↗

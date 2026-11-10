@@ -110,7 +110,7 @@ export default function Work() {
           <div>
             <p className="chapter-label">02 — Selected work</p>
             <h2 className="display-md mt-4 max-w-[20ch]">
-              Pieces made to <span className="serif-em text-lime">stop the scroll.</span>
+              Pieces made to <span className="serif-em text-accent">stop the scroll.</span>
             </h2>
           </div>
 
@@ -122,7 +122,7 @@ export default function Work() {
             <button
               type="button"
               onClick={() => setArchiveOpen(true)}
-              className="group mt-3 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/58 transition-colors hover:text-lime"
+              className="group mt-3 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/58 transition-colors hover:text-accent"
             >
               View archive — {archiveItems.length} pieces
               <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">

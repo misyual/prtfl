@@ -75,8 +75,8 @@ export default function Stage() {
         const positions = new Float32Array(count * 3)
         const seeds = new Float32Array(count)
         const colors = new Float32Array(count * 3)
-        const cream = new THREE.Color('#f2ead8')
-        const lime = new THREE.Color('#d4ff4f')
+        const cream = new THREE.Color('#f2e9d8')
+        const accent = new THREE.Color('#f0673f')
 
         for (let i = 0; i < count; i += 1) {
           const radius = 4.2 + Math.random() * 7.5
@@ -87,7 +87,7 @@ export default function Stage() {
           positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta)
           seeds[i] = Math.random() * Math.PI * 2
 
-          const color = Math.random() > 0.9 ? lime : cream
+          const color = Math.random() > 0.9 ? accent : cream
           colors[i * 3] = color.r
           colors[i * 3 + 1] = color.g
           colors[i * 3 + 2] = color.b

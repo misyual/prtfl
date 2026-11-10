@@ -25,7 +25,7 @@ export default function Person() {
               stagger={0.06}
               parts={[
                 { text: 'The person' },
-                { text: 'behind', className: 'serif-em text-lime' },
+                { text: 'behind', className: 'serif-em text-accent' },
                 { text: 'the pixels.' },
               ]}
             />

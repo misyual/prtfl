@@ -23,7 +23,7 @@ export default function Footer() {
               href={social.href}
               target={social.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={social.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-              className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/56 transition-colors hover:text-lime"
+              className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/56 transition-colors hover:text-accent"
             >
               {social.label}
             </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             event.preventDefault()
             scrollToId('top')
           }}
-          className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/56 transition-colors hover:text-lime"
+          className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/56 transition-colors hover:text-accent"
         >
           Back to top
           <span className="transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true">

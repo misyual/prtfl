@@ -129,7 +129,7 @@ export default function Intro({ onDone }) {
       <button
         type="button"
         onClick={finish}
-        className="absolute bottom-7 right-7 z-[3] font-mono text-[10px] uppercase tracking-[0.22em] text-cream/56 transition-colors hover:text-lime"
+        className="absolute bottom-7 right-7 z-[3] font-mono text-[10px] uppercase tracking-[0.22em] text-cream/56 transition-colors hover:text-accent"
       >
         Skip
       </button>

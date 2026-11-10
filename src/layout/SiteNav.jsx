@@ -114,8 +114,8 @@ export default function SiteNav({ ready = true }) {
               className="group inline-flex shrink-0 items-center gap-2.5"
               aria-label="Mishall Clive — back to top"
             >
-              <span className="h-2 w-2 rounded-[2px] bg-lime shadow-[0_0_12px_rgba(212,255,79,0.45)] transition-transform duration-500 group-hover:rotate-45 group-hover:scale-110" />
-              <span className="font-display text-[15px] font-semibold tracking-tight text-cream">
+              <span className="h-2 w-2 rounded-[2px] bg-accent shadow-[0_0_12px_rgba(240,103,63,0.45)] transition-transform duration-500 group-hover:rotate-45 group-hover:scale-110" />
+              <span className="font-display text-[15px] tracking-tight text-cream">
                 Mishall Clive
               </span>
             </a>
@@ -127,13 +127,13 @@ export default function SiteNav({ ready = true }) {
                   href={`#${chapter.id}`}
                   onClick={(event) => go(event, chapter.id)}
                   aria-current={active === chapter.id ? 'true' : undefined}
-                  className={`relative py-2 font-display text-[13px] tracking-tight transition-colors duration-300 ${
+                  className={`relative py-2 font-sans text-[13px] font-medium tracking-tight transition-colors duration-300 ${
                     active === chapter.id ? 'text-cream' : 'text-cream/58 hover:text-cream'
                   }`}
                 >
                   {chapter.nav}
                   <span
-                    className={`absolute inset-x-0 bottom-0 h-px origin-left bg-lime transition-transform duration-500 ${
+                    className={`absolute inset-x-0 bottom-0 h-px origin-left bg-accent transition-transform duration-500 ${
                       active === chapter.id ? 'scale-x-100' : 'scale-x-0'
                     }`}
                   />
@@ -176,7 +176,7 @@ export default function SiteNav({ ready = true }) {
           <div className="absolute inset-x-0 bottom-0 h-px overflow-hidden">
             <div
               ref={barRef}
-              className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-lime to-lime/25"
+              className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-accent to-accent/25"
             />
           </div>
         </div>
@@ -203,8 +203,8 @@ export default function SiteNav({ ready = true }) {
                   transition={{ delay: 0.04 + chapters.indexOf(chapter) * 0.045 }}
                   className="group flex items-baseline gap-4 border-b border-line py-4"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-lime">{chapter.num}</span>
-                  <span className="font-display text-[clamp(1.8rem,7vw,2.6rem)] font-medium tracking-tight text-cream">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-accent">{chapter.num}</span>
+                  <span className="font-display text-[clamp(1.8rem,7vw,2.6rem)] tracking-tight text-cream">
                     {chapter.label}
                   </span>
                 </motion.a>

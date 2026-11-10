@@ -14,7 +14,7 @@ export default function Campaigns() {
           <div>
             <p className="chapter-label">03 — Campaigns</p>
             <h2 className="display-md mt-4 max-w-[18ch]">
-              Campaigns that live on <span className="serif-em text-lime">storefronts.</span>
+              Campaigns that live on <span className="serif-em text-accent">storefronts.</span>
             </h2>
           </div>
           <div className="md:max-w-sm">
@@ -56,10 +56,10 @@ export default function Campaigns() {
 
               <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent p-5 sm:p-7">
                 <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-lime">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
                     {banner.platform}
                   </p>
-                  <h3 className="mt-1 font-display text-lg font-medium tracking-tight text-cream sm:text-xl">
+                  <h3 className="mt-1 font-sans text-lg font-semibold tracking-tight text-cream sm:text-xl">
                     {banner.title}
                   </h3>
                 </div>
