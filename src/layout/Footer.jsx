@@ -11,7 +11,7 @@ export default function Footer() {
           <p className="font-display text-sm font-medium tracking-tight text-cream">
             {profile.displayName}
           </p>
-          <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-cream/56">
+          <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-cream/75">
             © {year} — All rights reserved
           </p>
         </div>
@@ -23,14 +23,14 @@ export default function Footer() {
               href={social.href}
               target={social.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={social.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-              className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/56 transition-colors hover:text-accent"
+              className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/75 transition-colors hover:text-accent"
             >
               {social.label}
             </a>
           ))}
           <a
             href={`mailto:${EMAIL}`}
-            className="font-mono text-[10px] tracking-[0.12em] text-cream/52 transition-colors hover:text-cream"
+            className="font-mono text-[10px] tracking-[0.12em] text-cream/75 transition-colors hover:text-cream"
           >
             {EMAIL}
           </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             event.preventDefault()
             scrollToId('top')
           }}
-          className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/56 transition-colors hover:text-accent"
+          className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/75 transition-colors hover:text-accent"
         >
           Back to top
           <span className="transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true">

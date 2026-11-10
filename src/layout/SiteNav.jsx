@@ -128,7 +128,7 @@ export default function SiteNav({ ready = true }) {
                   onClick={(event) => go(event, chapter.id)}
                   aria-current={active === chapter.id ? 'true' : undefined}
                   className={`relative py-2 font-sans text-[13px] font-medium tracking-tight transition-colors duration-300 ${
-                    active === chapter.id ? 'text-cream' : 'text-cream/58 hover:text-cream'
+                    active === chapter.id ? 'text-cream' : 'text-cream/75 hover:text-cream'
                   }`}
                 >
                   {chapter.nav}
@@ -214,11 +214,11 @@ export default function SiteNav({ ready = true }) {
             <div className="flex flex-col gap-4">
               <a
                 href={`mailto:${EMAIL}`}
-                className="font-mono text-[11px] tracking-[0.16em] text-cream/60"
+                className="font-mono text-[11px] tracking-[0.16em] text-cream/75"
               >
                 {EMAIL}
               </a>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/52">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/75">
                 Graphic design · Front-end · Philippines
               </p>
             </div>
