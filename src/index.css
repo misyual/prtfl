@@ -2,33 +2,66 @@
 
 /* Self-hosted fonts — no third-party render-blocking request. */
 @font-face {
-  font-family: 'DM Serif Display';
+  font-family: 'Cabinet Grotesk';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/dm-serif-display.woff2') format('woff2');
+  src: url('/fonts/cabinet-grotesk-400.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
     U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'DM Serif Display';
-  font-style: italic;
-  font-weight: 400;
+  font-family: 'Cabinet Grotesk';
+  font-style: normal;
+  font-weight: 500;
   font-display: swap;
-  src: url('/fonts/dm-serif-display-italic.woff2') format('woff2');
+  src: url('/fonts/cabinet-grotesk-500.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
     U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Instrument Sans';
+  font-family: 'Cabinet Grotesk';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 700;
   font-display: swap;
-  src: url('/fonts/instrument-sans.woff2') format('woff2');
+  src: url('/fonts/cabinet-grotesk-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
     U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
@@ -57,20 +90,20 @@
 }
 
 @theme {
-  --color-ink: #f6f1e8;
-  --color-ink-soft: #f0e9dd;
-  --color-ink-elev: #ebe3d6;
-  --color-cream: #2a241e;
-  --color-cream-strong: #1f1a15;
-  --color-accent: #7a5a3b;
-  --color-line: rgb(42 36 30 / 0.12);
-  --color-line-strong: rgb(42 36 30 / 0.24);
+  --color-ink: #1f1d1d;
+  --color-ink-soft: #1f1d1d;
+  --color-ink-elev: #1f1d1d;
+  --color-cream: #f5e7df;
+  --color-cream-strong: #ffffff;
+  --color-accent: #f5e7df;
+  --color-dark: #1f1d1d;
+  --color-line: rgb(245 231 223 / 0.12);
+  --color-line-strong: rgb(245 231 223 / 0.24);
 
-  --font-display: 'DM Serif Display', 'Iowan Old Style', 'Times New Roman', serif;
-  --font-serif: 'DM Serif Display', 'Iowan Old Style', 'Times New Roman', serif;
-  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Cabinet Grotesk', 'Arial', 'Helvetica', sans-serif;
+  --font-serif: 'Cabinet Grotesk', 'Arial', 'Helvetica', sans-serif;
+  --font-sans: 'Satoshi', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
-
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -94,7 +127,7 @@
     margin: 0;
     overflow-x: hidden;
     background: var(--color-ink);
-    color: rgb(42 36 30 / 0.66);
+    color: rgb(242 233 216 / 0.66);
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.65;
@@ -156,7 +189,7 @@
 
   ::selection {
     background: var(--color-accent);
-    color: var(--color-cream);
+    color: var(--color-ink);
   }
 
   :focus-visible {
@@ -176,7 +209,7 @@
   ::-webkit-scrollbar-thumb {
     border: 3px solid var(--color-ink);
     border-radius: 999px;
-    background: rgb(42 36 30 / 0.18);
+    background: rgb(242 233 216 / 0.18);
   }
 }
 
@@ -234,8 +267,8 @@ html.lenis body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(58% 42% at 18% 8%, rgb(122 90 59 / 0.06), transparent 72%),
-    radial-gradient(48% 36% at 82% 18%, rgb(42 36 30 / 0.05), transparent 74%),
+    radial-gradient(58% 42% at 18% 8%, rgb(245 231 223 / 0.06), transparent 72%),
+    radial-gradient(48% 36% at 82% 18%, rgb(242 233 216 / 0.05), transparent 74%),
     linear-gradient(to bottom, transparent 55%, var(--color-ink) 100%);
 }
 
@@ -287,7 +320,7 @@ html.lenis body {
 }
 
 .chapter-num {
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -301,7 +334,7 @@ html.lenis body {
 
 .lede {
   max-width: 58ch;
-  color: rgb(42 36 30 / 0.6);
+  color: rgb(242 233 216 / 0.6);
   font-size: clamp(1rem, 1.25vw, 1.16rem);
   line-height: 1.65;
 }
@@ -372,14 +405,14 @@ html.lenis body {
 
 .btn:hover,
 .btn:focus-visible {
-  color: var(--color-cream);
+  color: var(--color-ink);
   border-color: var(--color-accent);
 }
 
 .btn-solid {
   border-color: var(--color-accent);
   background: var(--color-accent);
-  color: var(--color-cream);
+  color: var(--color-ink);
 }
 
 .btn-solid::before {
@@ -388,7 +421,7 @@ html.lenis body {
 
 .btn-ghost {
   border-color: var(--color-line);
-  color: rgb(42 36 30 / 0.8);
+  color: rgb(242 233 216 / 0.8);
 }
 
 .btn-sm {
@@ -405,8 +438,8 @@ html.lenis body {
   padding: 7px 13px;
   border: 1px solid var(--color-line);
   border-radius: 999px;
-  background: rgb(42 36 30 / 0.03);
-  color: rgb(42 36 30 / 0.66);
+  background: rgb(242 233 216 / 0.03);
+  color: rgb(242 233 216 / 0.66);
   font-size: 12px;
   letter-spacing: 0.01em;
   white-space: nowrap;
@@ -418,7 +451,7 @@ html.lenis body {
 
 .chip:hover {
   border-color: var(--color-accent);
-  background: rgb(122 90 59 / 0.1);
+  background: rgb(245 231 223 / 0.1);
   color: var(--color-cream);
 }
 
@@ -468,7 +501,7 @@ html.lenis body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgb(42 36 30 / 0.5);
+  color: rgb(242 233 216 / 0.5);
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.18em;
@@ -494,7 +527,7 @@ html.lenis body {
 
 .chapter-rail__item.is-active .chapter-rail__dot {
   background: var(--color-accent);
-  box-shadow: 0 0 0 4px rgb(122 90 59 / 0.12);
+  box-shadow: 0 0 0 4px rgb(245 231 223 / 0.12);
   transform: scale(1.2);
 }
 
@@ -542,7 +575,7 @@ html.lenis body {
   align-items: center;
   gap: clamp(20px, 3vw, 42px);
   padding-right: clamp(20px, 3vw, 42px);
-  color: rgb(42 36 30 / 0.4);
+  color: rgb(242 233 216 / 0.4);
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 3.4vw, 3rem);
   font-style: italic;
@@ -619,7 +652,7 @@ html.lenis body {
   display: flex;
   align-items: center;
   gap: 14px;
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.26em;
@@ -635,7 +668,7 @@ html.lenis body {
   width: min(240px, 62vw);
   height: 1px;
   overflow: hidden;
-  background: rgb(42 36 30 / 0.12);
+  background: rgb(242 233 216 / 0.12);
 }
 
 .intro__bar-fill {
@@ -704,7 +737,7 @@ html.lenis body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(to top, rgb(246 241 232 / 0.55), transparent 42%);
+  background: linear-gradient(to top, rgb(14 11 9 / 0.55), transparent 42%);
   pointer-events: none;
 }
 
@@ -718,7 +751,7 @@ html.lenis body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 12px;
-  color: rgb(42 36 30 / 0.72);
+  color: rgb(242 233 216 / 0.72);
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.18em;
@@ -737,7 +770,7 @@ html.lenis body {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.22em;
@@ -754,7 +787,7 @@ html.lenis body {
   width: 58px;
   height: 1px;
   overflow: hidden;
-  background: rgb(42 36 30 / 0.2);
+  background: rgb(242 233 216 / 0.2);
 }
 
 .scroll-cue__line::after {
@@ -777,7 +810,7 @@ html.lenis body {
 
 /* --------------------------------------------------------------- Reading */
 .reading-line {
-  color: rgb(42 36 30 / 0.22);
+  color: rgb(242 233 216 / 0.22);
 }
 
 .reading-line .line-mask {
@@ -821,7 +854,7 @@ html.lenis body {
 }
 
 .stat-label {
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.18em;
@@ -911,7 +944,7 @@ html.lenis body {
   height: 22px;
   padding-inline: 7px;
   border-radius: 999px;
-  background: rgb(246 241 232 / 0.62);
+  background: rgb(14 11 9 / 0.62);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   color: var(--color-cream);
@@ -937,7 +970,7 @@ html.lenis body {
 }
 
 .filmstrip__cat {
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.16em;
@@ -971,7 +1004,7 @@ html.lenis body {
 }
 
 .filmstrip__count {
-  color: rgb(42 36 30 / 0.58);
+  color: rgb(242 233 216 / 0.58);
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.18em;
@@ -1160,7 +1193,7 @@ html.lenis body {
 .process-line__fill {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--color-accent), rgb(122 90 59 / 0.2));
+  background: linear-gradient(90deg, var(--color-accent), rgb(245 231 223 / 0.2));
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -1177,7 +1210,7 @@ html.lenis body {
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  border: 1px solid rgb(42 36 30 / 0.3);
+  border: 1px solid rgb(242 233 216 / 0.3);
   background: var(--color-ink);
   transition:
     background 0.4s var(--ease-out-expo),
@@ -1188,7 +1221,7 @@ html.lenis body {
 .process-step.is-active .process-step__dot {
   border-color: var(--color-accent);
   background: var(--color-accent);
-  box-shadow: 0 0 0 5px rgb(122 90 59 / 0.12);
+  box-shadow: 0 0 0 5px rgb(245 231 223 / 0.12);
 }
 
 /* --------------------------------------------------------------- Contact */
@@ -1198,7 +1231,7 @@ html.lenis body {
   z-index: -1;
   height: 70%;
   pointer-events: none;
-  background: radial-gradient(50% 60% at 50% 100%, rgb(122 90 59 / 0.14), transparent 70%);
+  background: radial-gradient(50% 60% at 50% 100%, rgb(245 231 223 / 0.14), transparent 70%);
   filter: blur(20px);
 }
 
@@ -1239,7 +1272,7 @@ html.lenis body {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgb(246 241 232 / 0.82);
+  background: rgb(14 11 9 / 0.82);
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   cursor: pointer;
@@ -1274,7 +1307,7 @@ html.lenis body {
   padding: 0;
   border: 1px solid var(--color-line);
   border-radius: 999px;
-  background: rgb(246 241 232 / 0.65);
+  background: rgb(14 11 9 / 0.65);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--color-cream);
@@ -1287,7 +1320,7 @@ html.lenis body {
 }
 
 .modal-close:hover {
-  color: var(--color-cream);
+  color: var(--color-ink);
   border-color: var(--color-accent);
   background: var(--color-accent);
   transform: rotate(90deg);
@@ -1328,7 +1361,7 @@ html.lenis body {
   position: absolute;
   inset: auto 0 0;
   padding: 24px 10px 9px;
-  background: linear-gradient(to top, rgb(246 241 232 / 0.9), transparent);
+  background: linear-gradient(to top, rgb(14 11 9 / 0.9), transparent);
   color: var(--color-cream);
   font-family: var(--font-mono);
   font-size: 9px;
@@ -1382,7 +1415,7 @@ html.lenis body {
 }
 
 .lightbox-btn:hover {
-  color: var(--color-cream);
+  color: var(--color-ink);
   background: var(--color-accent);
   border-color: var(--color-accent);
 }

@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 import { profile } from '../data/profile'
+import Object3D from '../fx/Object3D'
 import { scrollToId, useReducedMotion } from '../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
@@ -157,16 +158,20 @@ export default function Opening({ introDone }) {
   }, [reduced])
 
   return (
-    <section id="top" ref={sectionRef} className="opening gutter">
+    <section id="top" ref={sectionRef} className="opening gutter bg-cream text-ink relative">
       <div className="shell w-full">
         <div className="flex items-center justify-between gap-4">
           <p ref={eyebrowRef} className="chapter-label">
             Portfolio / 2026
           </p>
           <p className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-cream/56">
-            {profile.location} — {profile.timezone}
+            {profile.location} ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â {profile.timezone}
           </p>
         </div>
+
+      <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[520px] w-[520px] opacity-70" aria-hidden="true">
+        <Object3D />
+      </div>
 
         <div className="opening__grid">
           <div className="min-w-0">
@@ -192,6 +197,7 @@ export default function Opening({ introDone }) {
               fetchPriority="high"
               decoding="async"
             />
+            
             <div className="opening__caption">
               <span>{profile.displayName}</span>
               <span>{profile.role}</span>

@@ -6,9 +6,20 @@ export default function Object3D() {
   const [ready, setReady] = useState(false)
   const reduced = useReducedMotion()
 
+  const [wide, setWide] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches,
+  )
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 768px)')
+    const onChange = () => setWide(query.matches)
+    query.addEventListener('change', onChange)
+    return () => query.removeEventListener('change', onChange)
+  }, [])
+
   useEffect(() => {
     const mount = mountRef.current
-    if (!mount || reduced) return undefined
+    if (!mount || reduced || !wide) return undefined
 
     let disposed = false
     let renderer, scene, camera, mesh, frame
@@ -28,7 +39,7 @@ export default function Object3D() {
 
       const geometry = new THREE.TorusKnotGeometry(1, 0.32, 128, 16)
       const material = new THREE.MeshStandardMaterial({
-        color: 0x6f7f6a,
+        color: 0x1f1d1d,
         metalness: 0.15,
         roughness: 0.55,
         flatShading: false,
@@ -80,7 +91,7 @@ export default function Object3D() {
         mesh.material?.dispose()
       }
     }
-  }, [reduced])
+  }, [reduced, wide])
 
   return (
     <div ref={mountRef} className="relative h-full w-full">
