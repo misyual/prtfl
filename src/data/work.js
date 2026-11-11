@@ -44,6 +44,15 @@ import starFaq from '../assets/starbright/FAQ.webp'
 import starLocation from '../assets/starbright/location.webp'
 import starFullPage from '../assets/starbright/Screenshot 2026-09-27 220337.webp'
 
+import avior1 from '../assets/avior/avior1.jpg'
+import avior2 from '../assets/avior/avior2.jpg'
+import avior3 from '../assets/avior/avior3.jpg'
+import avior4 from '../assets/avior/avior4.jpg'
+import avior5 from '../assets/avior/avior5.jpg'
+import avior6 from '../assets/avior/avior6.jpg'
+import avior7 from '../assets/avior/avior7.jpg'
+import avior8 from '../assets/avior/avior8.jpg'
+
 export const posters = [
   { id: 'w01', title: 'Amber — Portrait Study', category: 'Art Direction', src: portraitAmber },
   { id: 'w02', title: 'Silence', category: 'Poster', src: silence },
@@ -139,58 +148,88 @@ export const banners = [
 export const caseStudies = [
   {
     id: 1,
-    title: 'E-commerce API UI',
-    category: 'Dashboard',
+    title: "E-commerce API UI",
+    category: "Dashboard",
     cover: apiOverview,
-    year: '2025',
-    role: 'UI Design · Front-End',
-    client: 'E-commerce Team',
-    tools: ['Figma', 'Laravel/Inertia', 'React', 'Tailwind'],
+    year: "2025",
+    role: "UI Design · Front-End",
+    client: "E-commerce Team",
+    tools: ["Figma", "Laravel/Inertia", "React", "Tailwind"],
     summary:
-      'Built the internal multi-channel order management dashboard from scratch, designing a unified component system across order, branch, and user management screens.',
+      "Built the internal multi-channel order management dashboard from scratch, designing a unified component system across order, branch, and user management screens.",
     challenge:
-      'The team needed a single tool to manage orders synced from Shopee, TikTok, and Lazada, along with branches and user accounts — with no existing dashboard to build on, every screen, component, and interaction pattern had to be designed and built from zero.',
+      "The team needed a single tool to manage orders synced from Shopee, TikTok, and Lazada, along with branches and user accounts — with no existing dashboard to build on, every screen, component, and interaction pattern had to be designed and built from zero.",
     approach:
-      'Designed the UI in Figma around a consistent visual language — amber/orange gradient table headers, icon-only action buttons, and pill-style search bars — then built it in a Laravel/Inertia + React + Tailwind stack across the Branches, User Management, and Orders/Waybills pages.',
+      "Designed the UI in Figma around a consistent visual language — amber/orange gradient table headers, icon-only action buttons, and pill-style search bars — then built it in a Laravel/Inertia + React + Tailwind stack across the Branches, User Management, and Orders/Waybills pages.",
     outcome:
-      'Delivered a working dashboard with a defined button hierarchy and hover/active state system, plus a Reports section concept (per-channel revenue breakdowns and period-over-period comparisons) built on the same design foundation.',
+      "Delivered a working dashboard with a defined button hierarchy and hover/active state system, plus a Reports section concept (per-channel revenue breakdowns and period-over-period comparisons) built on the same design foundation.",
     gallery: [
-      { src: apiOverview, label: 'Overview' },
-      { src: apiDashboard, label: 'Dashboard' },
-      { src: apiProduct, label: 'Product' },
-      { src: apiOrder, label: 'Order' },
-      { src: apiReports, label: 'Reports' },
-      { src: apiComponents, label: 'Components' },
-      { src: apiModal, label: 'Modal' },
-      { src: apiUser, label: 'User' },
-      { src: apiBranch, label: 'Branch' },
+      { src: apiOverview, label: "Overview" },
+      { src: apiDashboard, label: "Dashboard" },
+      { src: apiProduct, label: "Product" },
+      { src: apiOrder, label: "Order" },
+      { src: apiReports, label: "Reports" },
+      { src: apiComponents, label: "Components" },
+      { src: apiModal, label: "Modal" },
+      { src: apiUser, label: "User" },
+      { src: apiBranch, label: "Branch" },
     ],
   },
   {
     id: 2,
-    title: 'starbright.com.ph UI Redesign',
-    category: 'Whole Site',
+    title: "starbright.com.ph UI Redesign",
+    category: "Whole Site",
     cover: starOverview,
-    year: '2025',
-    role: 'Art Direction · UI Design',
-    client: 'Starbright',
-    tools: ['Figma', 'WordPress', 'WooCommerce'],
+    year: "2025",
+    role: "Art Direction · UI Design",
+    client: "Starbright",
+    url: "https://starbright.com.ph",
+    tools: ["Figma", "WordPress", "WooCommerce"],
     summary:
-      'Redesigned every page of the Starbright Office Depot WordPress/WooCommerce site, refreshing the visual direction and rebuilding UI elements site-wide.',
+      "Redesigned every page of the Starbright Office Depot WordPress/WooCommerce site, refreshing the visual direction and rebuilding UI elements site-wide.",
     challenge:
-      'The existing site had an outdated look and inconsistent UI across pages, with issues like unreliable asset hosting affecting things as basic as footer icons rendering properly.',
+      "The existing site had an outdated look and inconsistent UI across pages, with issues like unreliable asset hosting affecting things as basic as footer icons rendering properly.",
     approach:
       "Redesigned the site page by page in Figma and Illustrator, then implemented the new direction directly in WordPress/WooCommerce — including rebuilding the footer's social and payment icon row and fixing asset delivery by moving icons into the WordPress Media Library with full file URLs.",
     outcome:
-      'A consistently redesigned site across all pages, with resolved asset-hosting issues ensuring UI elements like footer icons render reliably.',
+      "A consistently redesigned site across all pages, with resolved asset-hosting issues ensuring UI elements like footer icons render reliably.",
     gallery: [
-      { src: starOverview, label: 'Overview' },
-      { src: starCover, label: 'Cover' },
-      { src: starAbout, label: 'About' },
-      { src: starProduct, label: 'Products' },
-      { src: starFaq, label: 'FAQ' },
-      { src: starLocation, label: 'Location' },
-      { src: starFullPage, label: 'Full page' },
+      { src: starOverview, label: "Overview" },
+      { src: starCover, label: "Cover" },
+      { src: starAbout, label: "About" },
+      { src: starProduct, label: "Products" },
+      { src: starFaq, label: "FAQ" },
+      { src: starLocation, label: "Location" },
+      { src: starFullPage, label: "Full page" },
     ],
   },
-]
+  {
+    id: 3,
+    title: "Avior Hotel Booking System",
+    category: "Front End",
+    cover: avior1,
+    year: "2026",
+    role: "Front End Development",
+    client: "Avior Hotel",
+    url: "https://aviorhotel.com",
+    tools: ["Laravel", "Typescript", "Tailwind", "Inertia", "GSAP"],
+    summary:
+      "Developed a front-end booking system for Avior Hotel, integrating with their existing Laravel backend and providing a seamless user experience for room selection and reservation management.",
+    challenge:
+      "The hotel needed a user-friendly booking interface that could handle real-time availability and dynamic pricing, while also being responsive across devices and maintaining brand consistency.",
+    approach:
+      "Developed the front-end using Laravel with Inertia.js and Tailwind CSS, implementing GSAP for smooth animations and transitions. Collaborated closely with the backend team to ensure accurate data flow and real-time updates.",
+    outcome:
+      "Delivered a fully functional booking system that improved user engagement and increased reservations, with positive feedback from both the hotel management and customers.",
+    gallery: [
+      { src: avior1, label: "Landing Page" },
+      { src: avior2, label: "About" },
+      { src: avior3, label: "Services" },
+      { src: avior4, label: "Offers" },
+      { src: avior5, label: "Rooms" },
+      { src: avior6, label: "Events" },
+      { src: avior7, label: "Login" },
+      { src: avior8, label: "Register" },
+    ],
+  },
+];
