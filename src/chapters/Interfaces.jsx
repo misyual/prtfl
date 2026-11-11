@@ -5,6 +5,31 @@ import WordReveal from '../fx/WordReveal'
 
 const DETAILS = ['challenge', 'approach', 'outcome']
 
+function VisitLink({ url }) {
+  if (!url) return null
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-8 inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-cream/80 transition-colors hover:border-accent hover:text-accent"
+    >
+      Visit site
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+        <path
+          d="M3 9l6-6M4 3h5v5"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    </a>
+  )
+}
+
 function CaseStudy({ study, index, onOpen }) {
   const [active, setActive] = useState(0)
   const detailRefs = useRef([])
@@ -105,15 +130,8 @@ function CaseStudy({ study, index, onOpen }) {
           </dl>
 
           <div className="mt-8">
-            {DETAILS.map((key, detailIndex) => (
-              <div
-                key={key}
-                ref={(el) => {
-                  detailRefs.current[detailIndex] = el
-                }}
-                data-index={detailIndex}
-                className="case-detail"
-              >
+            {DETAILS.map((key) => (
+              <div key={key} className="case-detail">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
                   {key}
                 </p>
@@ -129,6 +147,8 @@ function CaseStudy({ study, index, onOpen }) {
               </span>
             ))}
           </div>
+
+          <VisitLink url={study.url} />
         </div>
       </div>
     </article>
@@ -223,6 +243,8 @@ function CaseModal({ study, onClose }) {
               </span>
             ))}
           </div>
+
+          <VisitLink url={study.url} />
         </div>
       </div>
 
